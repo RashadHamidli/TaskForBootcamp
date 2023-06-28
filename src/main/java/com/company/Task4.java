@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Task4 {
     public static void main(String[] args) {
-        drawRegtangleByForLoopWithScanner();
+        drawRegtangleByScannerAndForLoop();
     }
 
     public static void printAllNumberBetweenOneAndTen() {
@@ -39,14 +39,14 @@ public class Task4 {
         }
     }
 
-    public static void drawRegtangleByForLoopWithScanner() {
+    public static void drawRegtangleByScannerAndForLoop() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("enter regtangle width: ");
         int width = scanner.nextInt();
         System.out.print("enter regtangle length: ");
         int length = scanner.nextInt();
         for (int i = 0; i < width; i++) {
-            for (int j = 0; j < length; j++) {
+            for (int j = 1; j < length; j++) {
                 System.out.print("* ");
             }
             System.out.println("*");
