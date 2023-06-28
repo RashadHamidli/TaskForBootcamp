@@ -41,11 +41,15 @@ public class Task4 {
 
     public static void drawRegtangleByForLoopWithScanner() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("enter regtangle length");
+        System.out.print("enter regtangle width: ");
+        int width = scanner.nextInt();
+        System.out.print("enter regtangle length: ");
         int length = scanner.nextInt();
-        int height = scanner.nextInt();
-        for (int i = 0; i < length; i++) {
-            System.out.println("**********");
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < length; j++) {
+                System.out.print("* ");
+            }
+            System.out.println("*");
         }
     }
 
