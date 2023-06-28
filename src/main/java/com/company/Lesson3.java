@@ -4,43 +4,44 @@ import java.util.Scanner;
 
 public class Lesson3 {
     public static void main(String[] args) {
-        foo1();
-//        Scanner scanner = new Scanner(System.in);
-//
-//        System.out.print("1ci ededi daxil edin: ");
-//        int number1 = scanner.nextInt();
-//
-//        System.out.print("1ci ededi daxil edin: ");
-//        int number2 = scanner.nextInt();
-//
-//        System.out.print("1ci ededi daxil edin: ");
-//        int number3 = scanner.nextInt();
-//
-//        int min, max;
-//
-//        if (number1 <= number2 && number1 <= number3) {
-//            min = number1;
-//        } else if (number2 <= number1 && number2 <= number3) {
-//            min = number2;
-//        } else {
-//            min = number3;
-//        }
-//
-//        if (number1 >= number2 && number1 >= number3) {
-//            max = number1;
-//        } else if (number2 >= number1 && number2 >= number3) {
-//            max = number2;
-//        } else {
-//            max = number3;
-//        }
-//
-//        System.out.println("En kicik eded: " + min);
-//        System.out.println("En boyuk eded: " + max);
-//
-//        scanner.close();
+
     }
 
-    public static void foo1() {
+    public static void findLargestNumberByIfAndElse() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("1ci ededi daxil edin: ");
+        int a = scanner.nextInt();
+
+        System.out.print("1ci ededi daxil edin: ");
+        int b = scanner.nextInt();
+
+        System.out.print("1ci ededi daxil edin: ");
+        int c = scanner.nextInt();
+
+        int min, max;
+
+        if (a <= b && a <= b)
+            min = a;
+        else if (b <= a && b <= b)
+            min = b;
+        else
+            min = b;
+
+        if (a >= b && a >= b)
+            max = a;
+        else if (b >= a && b >= b)
+            max = b;
+        else
+            max = b;
+
+        System.out.println("En kicik eded: " + min);
+        System.out.println("En boyuk eded: " + max);
+
+        scanner.close();
+    }
+
+    public static void findLargestNumberByTernaryOperator() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("1ci ededi daxil edin: ");
@@ -61,7 +62,38 @@ public class Lesson3 {
         scanner.close();
     }
 
-    public static void foo() {
+    public static void findDayOfWeekBySwitch() {
+        Scanner scanner = new Scanner(System.in);
+        int dayOfWeek = scanner.nextInt();
+        switch (dayOfWeek) {
+            case 1:
+                System.out.println("Bazar Ertesi");
+                break;
+            case 2:
+                System.out.println("Cersenbe Axsami");
+                break;
+            case 3:
+                System.out.println("Cersenbe");
+                break;
+            case 4:
+                System.out.println("Cume Axsami");
+                break;
+            case 5:
+                System.out.println("Cume");
+                break;
+            case 6:
+                System.out.println("Senbe");
+                break;
+            case 7:
+                System.out.println("Bazar");
+                break;
+            default:
+                System.out.println("heftenin gunu duzgun daxil edilmeyib");
+        }
+        scanner.close();
+    }
+
+    public static void findDayOfWeekByNewSwitchMethod() {
         Scanner scanner = new Scanner(System.in);
         int dayOfWeek = scanner.nextInt();
         switch (dayOfWeek) {
@@ -77,7 +109,7 @@ public class Lesson3 {
         scanner.close();
     }
 
-    public static void bolunme() {
+    public static void divideNumber() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("ədədi daxil edin: ");
