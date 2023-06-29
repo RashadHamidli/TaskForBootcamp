@@ -2,7 +2,7 @@ package com.example;
 
 import java.util.Scanner;
 
-public class Exam1 {
+public class MixPractice {
     public static void main(String[] args) {
         checkOpposideWord();
     }
