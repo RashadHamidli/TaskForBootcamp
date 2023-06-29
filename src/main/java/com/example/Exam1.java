@@ -1,11 +1,43 @@
 package com.example;
 
-import javax.swing.plaf.synth.SynthTabbedPaneUI;
 import java.util.Scanner;
 
-public class Divid {
+public class Exam1 {
     public static void main(String[] args) {
-        findSimpleNumber();
+        reqemlerinSayi();
+    }
+
+    public static void reqemlerinSayi() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("ededi daxil edin: ");
+        int number = scanner.nextInt();
+        int say = 0;
+        while (number > 0) {
+            number /= 10;
+            say++;
+        }
+            System.out.println("ədədin rəqəmlərinin sayı: " + say+"-dir");
+    }
+
+    public static void sumIntWhile() {
+        Scanner scanner = new Scanner(System.in);
+        int number = scanner.nextInt();
+        int result = 0;
+        while (number > 0) {
+            result += number % 10;
+            number /= 10;
+        }
+        System.out.println("ededin reqemleri cemi: " + result);
+    }
+
+    public static void sumIntFor() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("ededi daxil edin: ");
+        int number = scanner.nextInt();
+        int result = 0;
+        for (int i = 0; i < number; number /= 10)
+            result += number % 10;
+        System.out.println("ededin reqemleri cemi: " + result);
     }
 
     public static void divideTwoNumber() {
