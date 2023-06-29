@@ -1,9 +1,17 @@
 package com.example;
 
 
-public class Ex1 {
+public class Example {
     public static void main(String[] args) {
-        foo(1, 2, 1, 1);
+        checkDiff("salam", "salam");
+    }
+
+    public static void checkDiff(String s, String s1) {
+        System.out.println(s.equals(s1));
+    }
+
+    public static void returnIndexSting(String s, int a) {
+        System.out.println(s.charAt(a));
     }
 
     public static void foo(int a, int b, int c, int d) {
