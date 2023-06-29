@@ -2,7 +2,7 @@ package com.example;
 
 import java.util.Scanner;
 
-public class IntegerToString {
+public class ConvertToWords {
     private static final String[] ones = {
             "", "bir", "iki", "üç", "dörd", "beş", "altı", "yeddi", "səkkiz", "doqquz"
     };
