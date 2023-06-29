@@ -1,10 +1,11 @@
 package com.example;
 
+import javax.swing.plaf.synth.SynthTabbedPaneUI;
 import java.util.Scanner;
 
 public class Divid {
     public static void main(String[] args) {
-
+        findSimpleNumber();
     }
 
     public static void divideTwoNumber() {
@@ -17,7 +18,8 @@ public class Divid {
         }
         scanner.close();
     }
-    public static void divideNumbersByScanner(){
+
+    public static void divideNumbersByScanner() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("ededi daxil edin: ");
         int eded = scanner.nextInt();
@@ -29,4 +31,24 @@ public class Divid {
         }
         scanner.close();
     }
+
+    public static void findSimpleNumber() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("ededi daxil edin: ");
+        int number = scanner.nextInt();
+        for (int i = 2; i <= number; i++) {
+            boolean b = true;
+            for (int j = 2; j < i; j++) {
+                if (i % j == 0) {
+                    b = false;
+                    break;
+                }
+            }
+            if (b) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+
+
 }

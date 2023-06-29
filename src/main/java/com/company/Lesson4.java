@@ -2,10 +2,9 @@ package com.company;
 
 public class Lesson4 {
     public static void main(String[] args) {
-
     }
 
-    public static void findSimpleNumber() {
+    public static void v() {
         for (int i = 2; i <= 100; i++) {
             boolean b = true;
             for (int j = 2; j < i; j++) {
