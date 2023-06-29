@@ -6,6 +6,14 @@ public class Exam1 {
     public static void main(String[] args) {
         checkOpposideWord();
     }
+    public static void foo(int a, char c, boolean b) {
+//        foo(5, 'c',  true);
+        for(int i=0; i<a; i++){
+            if(b==true)
+                System.out.println(c);
+            else System.out.print(c);
+        }
+    }
 
     public static void checkOpposideWord() {
         Scanner scanner = new Scanner(System.in);
