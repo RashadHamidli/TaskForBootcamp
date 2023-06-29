@@ -2,7 +2,7 @@ package com.example;
 
 import java.util.Scanner;
 
-public class Exercise {
+public class IntegerToString {
     private static final String[] ones = {
             "", "bir", "iki", "üç", "dörd", "beş", "altı", "yeddi", "səkkiz", "doqquz"
     };
@@ -14,15 +14,15 @@ public class Exercise {
     private static final String[] teens = {
             "on", "on bir", "on iki", "on üç", "on dörd", "on beş", "on altı", "on yeddi", "on səkkiz", "on doqquz"
     };
-    private static final String[] yuz = {
-            "yux", "on bir", "on iki", "on üç", "on dörd", "on beş", "on altı", "on yeddi", "on səkkiz", "on doqquz"
-    };
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int number = scanner.nextInt();
-        String numberInWords = convertToWords(number);
-        System.out.println(numberInWords);
+        while (true){
+            System.out.print("ədədi daxil edin: ");
+            int number = scanner.nextInt();
+            String numberInWords = convertToWords(number);
+            System.out.println("hərflə yazılışı: "+numberInWords);
+        }
     }
 
     public static String convertToWords(int number) {
@@ -35,6 +35,10 @@ public class Exercise {
         }
 
         String words = "";
+        if ((number / 1000) > 0) {
+            words += ones[number / 1000] + " min ";
+            number %= 1000;
+        }
 
         if ((number / 100) > 0) {
             words += ones[number / 100] + " yüz ";
@@ -47,7 +51,8 @@ public class Exercise {
         } else if (number < 10) {
             words += ones[number];
             number = 0;
-        } else {
+        }
+        else {
             words += teens[number - 10];
             number = 0;
         }
