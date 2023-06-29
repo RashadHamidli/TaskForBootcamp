@@ -3,7 +3,22 @@ package com.example;
 
 public class Example {
     public static void main(String[] args) {
-        checkDiff("salam", "salam");
+        foo("salam", "malas", "sa");
+    }
+
+    public static void foo(String a, String b, String c) {
+        if (a.contains(c) && b.contains(c))
+            System.out.println("1ci ve 2ci sozler her ikisi 3cu sozu ehate edir");
+        else
+            System.out.println("1ci ve 2ci soz 3cunu ehate etmirler");
+
+    }
+
+    public static void foo(String s, char c, int num) {
+        for (int i = 0; i < num; i++) {
+            s += c;
+        }
+        System.out.println(s);
     }
 
     public static void checkDiff(String s, String s1) {
