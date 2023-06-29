@@ -4,7 +4,26 @@ import java.util.Scanner;
 
 public class Exam1 {
     public static void main(String[] args) {
-        reqemlerinSayi();
+        tersDuzYoxlamaq();
+    }
+
+    public static void tersDuzYoxlamaq() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("ededi daxil edin: ");
+        int eded = scanner.nextInt();
+        int temp = eded;
+        int tersEded = 0;
+
+        while (temp != 0) {
+            int sonReqem = temp % 10;
+            tersEded = tersEded * 10 + sonReqem;
+            temp /= 10;
+        }
+        if (eded == tersEded)
+            System.out.println("ededin duzu ve tersi eynidir");
+        else
+            System.out.println("ededin duzu ve tersi ferqlidir");
+
     }
 
     public static void reqemlerinSayi() {
@@ -16,7 +35,7 @@ public class Exam1 {
             number /= 10;
             say++;
         }
-            System.out.println("ədədin rəqəmlərinin sayı: " + say+"-dir");
+        System.out.println("ədədin rəqəmlərinin sayı: " + say + "-dir");
     }
 
     public static void sumIntWhile() {
