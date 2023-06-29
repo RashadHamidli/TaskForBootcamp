@@ -7,12 +7,11 @@ public class Main {
     public static void main(String[] args) {
     }
 
-    public static void foo(int a, char c, boolean b) {
-            for(int i=0; i<a; i++){
-                if(b==true)
-                    System.out.println(c);
-                else System.out.print(c);
-            }
+    public static void foo(int a, int b, int c) {
+        for (int i = a; i <= b; i++) {
+            double pow = Math.pow(i, c);
+            System.out.println(i + " ^ " + c + " = " + pow);
+        }
     }
 
 }

@@ -6,10 +6,19 @@ public class Exam1 {
     public static void main(String[] args) {
         checkOpposideWord();
     }
+
+    public static void foo(int a, int b, int c) {
+//        foo(1, 5, 2);
+        for (int i = a; i <= b; i++) {
+            double pow = Math.pow(i, c);
+            System.out.println(i + " ^ " + c + " = " + pow);
+        }
+    }
+
     public static void foo(int a, char c, boolean b) {
 //        foo(5, 'c',  true);
-        for(int i=0; i<a; i++){
-            if(b==true)
+        for (int i = 0; i < a; i++) {
+            if (b == true)
                 System.out.println(c);
             else System.out.print(c);
         }
