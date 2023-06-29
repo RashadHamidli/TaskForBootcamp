@@ -4,7 +4,20 @@ import java.util.Scanner;
 
 public class Exam1 {
     public static void main(String[] args) {
-        tersDuzYoxlamaq();
+        checkOpposideWord();
+    }
+
+    public static void checkOpposideWord() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("sozu daxil edin: ");
+        String word = scanner.nextLine();
+        String oppWord = "";
+        for (int i = word.length() - 1; i >= 0; i--)
+            oppWord += word.charAt(i);
+        if (word.equals(oppWord))
+            System.out.println("tersi ve duzu eynidir");
+        else
+            System.out.println("tersi ve duzu ferqlidir");
     }
 
     public static void tersDuzYoxlamaq() {
