@@ -60,10 +60,10 @@ public class Task4 {
         System.out.print("enter regtangle length: ");
         int length = scanner.nextInt();
         for (int i = 0; i < width; i++) {
-            for (int j = 1; j < length; j++) {
+            for (int j = 0; j < length; j++) {
                 System.out.print("* ");
             }
-            System.out.println("*");
+            System.out.println("");
         }
     }
 
