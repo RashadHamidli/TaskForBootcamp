@@ -5,21 +5,37 @@ import com.sun.source.doctree.BlockTagTree;
 
 public class Example {
     public static void main(String[] args) {
-        System.out.println( swapCase("Hello Wolrd"));
+        String inputText = "HeLLo WorlD";
+        String outputText = swapCase2(inputText);
+        System.out.println(outputText);
     }
 
     public static String swapCase(String text) {
-        StringBuilder swappedText = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         for (char c : text.toCharArray()) {
             if (Character.isLowerCase(c)) {
-                swappedText.append(Character.toUpperCase(c));
+                sb.append(Character.toUpperCase(c));
             } else if (Character.isUpperCase(c)) {
-                swappedText.append(Character.toLowerCase(c));
+                sb.append(Character.toLowerCase(c));
             } else {
-                swappedText.append(c);
+                sb.append(c);
             }
         }
-        return swappedText.toString();
+        return sb.toString();
+    }
+    public static String swapCase2(String text) {
+        String s="";
+        for (int i=0; i<text.length(); i++) {
+            Character c=text.charAt(i);
+            if (c.isLowerCase(c)) {
+                s+=(c.toUpperCase(c));
+            } else if (c.isUpperCase(c)) {
+                s+=(c.toLowerCase(c));
+            } else {
+                s+=(c);
+            }
+        }
+        return s;
     }
 
     public static String foo(String s, String s1) {
