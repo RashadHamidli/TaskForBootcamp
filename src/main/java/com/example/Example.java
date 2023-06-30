@@ -7,11 +7,81 @@ import java.util.Scanner;
 
 public class Example {
     public static void main(String[] args) {
-        String inputText = "HeLLo WorlD";
-        String outputText = swapCase2(inputText);
-        System.out.println(outputText);
+        findYearDays();
     }
-    public static void foo(){
+
+    public static void findYearDays() {
+        Scanner input = new Scanner(System.in);
+
+        String MonthOfName = "Unknown";
+
+        System.out.print("Input a month number: ");
+        int month = input.nextInt();
+
+        System.out.print("Input a year: ");
+        int year = input.nextInt();
+
+        int result = switch (month) {
+            case 1 -> {
+                MonthOfName = "January";
+                yield 31;
+            }
+            case 2 -> {
+                MonthOfName = "February";
+                if ((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0))) {
+                    yield 29;
+                } else {
+                    yield 28;
+                }
+            }
+            case 3 -> {
+                MonthOfName = "March";
+                yield 31;
+            }
+            case 4 -> {
+                MonthOfName = "April";
+                yield 30;
+            }
+            case 5 -> {
+                MonthOfName = "May";
+                yield 31;
+            }
+            case 6 -> {
+                MonthOfName = "June";
+                yield 30;
+            }
+            case 7 -> {
+                MonthOfName = "July";
+                yield 31;
+            }
+            case 8 -> {
+                MonthOfName = "August";
+                yield 31;
+            }
+            case 9 -> {
+                MonthOfName = "September";
+                yield 30;
+            }
+            case 10 -> {
+                MonthOfName = "October";
+                yield 31;
+            }
+            case 11 -> {
+                MonthOfName = "November";
+                yield 30;
+            }
+            case 12 -> {
+                MonthOfName = "December";
+                yield 31;
+            }
+            default -> {
+                yield -1;
+            }
+        };
+        System.out.print(MonthOfName + " " + year + " has " + result + " days\n");
+    }
+
+    public static void foo2() {
         Scanner input = new Scanner(System.in);
 
         int number_Of_DaysInMonth = 0;
@@ -92,16 +162,17 @@ public class Example {
         }
         return sb.toString();
     }
+
     public static String swapCase2(String text) {
-        String s="";
-        for (int i=0; i<text.length(); i++) {
-            Character c=text.charAt(i);
+        String s = "";
+        for (int i = 0; i < text.length(); i++) {
+            Character c = text.charAt(i);
             if (c.isLowerCase(c)) {
-                s+=(c.toUpperCase(c));
+                s += (c.toUpperCase(c));
             } else if (c.isUpperCase(c)) {
-                s+=(c.toLowerCase(c));
+                s += (c.toLowerCase(c));
             } else {
-                s+=(c);
+                s += (c);
             }
         }
         return s;
