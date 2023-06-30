@@ -74,9 +74,7 @@ public class Example {
                 MonthOfName = "December";
                 yield 31;
             }
-            default -> {
-                yield -1;
-            }
+            default -> throw new IllegalStateException("Ay duzgun daxil edilmeyib: " + month);
         };
         System.out.print(MonthOfName + " " + year + " has " + result + " days\n");
     }
