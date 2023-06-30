@@ -7,10 +7,25 @@ import java.util.Scanner;
 
 public class Example {
     public static void main(String[] args) {
-        findYearDays();
+
     }
 
-    public static void findYearDays() {
+    public static void fiveNumberSumAndAvg() {
+        Scanner scanner = new Scanner(System.in);
+        double num = 0;
+        double result = 0;
+        double avg = 0;
+        for (int i = 0; i < 5; i++) {
+            System.out.println(i + 1 + "-ci ededi daxil edin: ");
+            num = scanner.nextInt();
+            result += num;
+        }
+        System.out.println("daxil edilen 5 ededin cemi: " + result);
+        avg = result / 5;
+        System.out.println("daxil edilen 5 ededin ortalamsi: " + avg);
+    }
+
+    public static void findYearDaysSwitchNewMethod() {
         Scanner input = new Scanner(System.in);
 
         String MonthOfName = "Unknown";
@@ -79,7 +94,7 @@ public class Example {
         System.out.print(MonthOfName + " " + year + " has " + result + " days\n");
     }
 
-    public static void foo2() {
+    public static void findYearDaysSwitchSimple() {
         Scanner input = new Scanner(System.in);
 
         int number_Of_DaysInMonth = 0;
@@ -161,7 +176,7 @@ public class Example {
         return sb.toString();
     }
 
-    public static String swapCase2(String text) {
+    public static String swapCaseSimple(String text) {
         String s = "";
         for (int i = 0; i < text.length(); i++) {
             Character c = text.charAt(i);
@@ -176,7 +191,7 @@ public class Example {
         return s;
     }
 
-    public static String foo(String s, String s1) {
+    public static String twoStringCompareTo(String s, String s1) {
         int i = s.length();
         int i1 = s1.length();
         if (i > i1)
@@ -193,7 +208,7 @@ public class Example {
         }
     }
 
-    public static void foo(String a, String b, String c) {
+    public static void twoStringContainsThree(String a, String b, String c) {
         if (a.contains(c) && b.contains(c))
             System.out.println("1ci ve 2ci sozler her ikisi 3cu sozu ehate edir");
         else
@@ -201,7 +216,7 @@ public class Example {
 
     }
 
-    public static void foo(String s, char c, int num) {
+    public static void stringAdd(String s, char c, int num) {
         for (int i = 0; i < num; i++) {
             s += c;
         }
