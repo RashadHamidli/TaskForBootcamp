@@ -3,7 +3,14 @@ package com.example;
 
 public class Example {
     public static void main(String[] args) {
-        foo("salam", "malas", "sa");
+        foo("Hello World", 3, 7);
+    }
+
+    public static void foo(String s, int a, int b) {
+        String ss = s.substring(a, b);
+        for (int i = 0; i < ss.length(); i++) {
+            System.out.println(ss.charAt(i));
+        }
     }
 
     public static void foo(String a, String b, String c) {
