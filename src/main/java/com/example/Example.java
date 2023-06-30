@@ -1,9 +1,35 @@
 package com.example;
 
 
+import com.sun.source.doctree.BlockTagTree;
+
 public class Example {
     public static void main(String[] args) {
-        foo("Hello World", 3, 7);
+        System.out.println( swapCase("Hello Wolrd"));
+    }
+
+    public static String swapCase(String text) {
+        StringBuilder swappedText = new StringBuilder();
+        for (char c : text.toCharArray()) {
+            if (Character.isLowerCase(c)) {
+                swappedText.append(Character.toUpperCase(c));
+            } else if (Character.isUpperCase(c)) {
+                swappedText.append(Character.toLowerCase(c));
+            } else {
+                swappedText.append(c);
+            }
+        }
+        return swappedText.toString();
+    }
+
+    public static String foo(String s, String s1) {
+        int i = s.length();
+        int i1 = s1.length();
+        if (i > i1)
+            return s;
+        else if (i < i1)
+            return s1;
+        return "her iki soz eynidir: " + s;
     }
 
     public static void foo(String s, int a, int b) {
