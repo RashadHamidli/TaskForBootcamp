@@ -18,12 +18,10 @@ public class Task6 {
             if (arr[i] < min) {
                 min = arr[i];
             }
-
             if (arr[i] > max) {
                 max = arr[i];
             }
         }
-
         System.out.println("En kicik deyer: " + min);
         System.out.println("En büyük deyer: " + max);
     }
