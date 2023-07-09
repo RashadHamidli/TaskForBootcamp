@@ -2,7 +2,7 @@ package com.app;
 
 import java.util.*;
 
-public class FirstApp {
+public class FirstProject {
     private static List<Integer> list;
     private static String name;
     private static Scanner scanner = new Scanner(System.in);
