@@ -7,9 +7,9 @@ public class FirstApp {
     private static String name;
     private static Scanner scanner = new Scanner(System.in);
 
-
     public static void main(String[] args) {
         runApp();
+        scanner.close();
     }
 
     public static void runApp() {
@@ -33,14 +33,14 @@ public class FirstApp {
         checkCorrect(correctYear);
     }
 
-    private static void checkCorrect( int correctYear) {
+    private static void checkCorrect(int correctYear) {
         int yourTry = 0;
         while (true) {
             int userEnterYear = scanner.nextInt();
             if (userEnterYear == correctYear) {
                 yourTry++;
                 System.out.println("Tebrikler! " + name + " cavab dogrudur.");
-                System.out.println("dogru tarix: " +correctYear+ "\nsizin cehdleriniz: " + yourTry + "\nsizin daxil etdiyiniz cavablar: ");
+                System.out.println("dogru tarix: " + correctYear + "\nsizin cehdleriniz: " + yourTry + "\nsizin daxil etdiyiniz cavablar: ");
                 list.add(userEnterYear);
                 Collections.sort(list);
                 for (int year : list) {
