@@ -2,53 +2,59 @@ package com.app;
 
 import java.util.*;
 
-public class Game {
+public class FirstApp {
     private static List<Integer> list;
+    private static String name;
+    private static Scanner scanner = new Scanner(System.in);
+
 
     public static void main(String[] args) {
-        game();
+        runApp();
     }
 
-    public static void game() {
+    public static void runApp() {
         String[][] arr = {
                 {"WW1 baslanmasi tarixi", "1918"},
                 {"WW2 baslanmasi tarixi", "1941"},
                 {"BMT yaradilmasi tarixi", "1945"},
-                {"SSRI dagilmasi tarixi", "1991"}
+                {"MDB yaradilmasi tarixi", "1991"}
         };
 
         String randomYear = getRandom(arr);
-        int enterYear = getYear(arr, randomYear);
+        int correctYear = getYear(arr, randomYear);
 
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Let the game begin!");
         System.out.print("Adinizi daxil edin: ");
-        String name = scanner.nextLine();
+        name = scanner.nextLine();
         System.out.println("Tesadufu secilmis hadise: " + randomYear);
         System.out.print("tarix texmin edin: ");
 
         list = new ArrayList<>();
-
-        check(scanner, enterYear);
-
-        System.out.println("Tebrikler! " + name + " cavab dogrudur.");
-        System.out.println("dogru tarix: " + enterYear + "\nsizin daxil etdiyiniz cavablar: ");
-        Collections.sort(list);
-        for (int year : list) {
-            System.out.print(year + ", ");
-        }
+        checkCorrect(correctYear);
     }
 
-    private static void check(Scanner scanner, int correctYear) {
+    private static void checkCorrect( int correctYear) {
+        int yourTry = 0;
         while (true) {
-            int userEnter = scanner.nextInt();
-            list.add(userEnter);
-            if (userEnter == correctYear) {
+            int userEnterYear = scanner.nextInt();
+            if (userEnterYear == correctYear) {
+                yourTry++;
+                System.out.println("Tebrikler! " + name + " cavab dogrudur.");
+                System.out.println("dogru tarix: " +correctYear+ "\nsizin cehdleriniz: " + yourTry + "\nsizin daxil etdiyiniz cavablar: ");
+                list.add(userEnterYear);
+                Collections.sort(list);
+                for (int year : list) {
+                    System.out.print(year + ", ");
+                }
                 break;
-            } else if (userEnter < correctYear) {
+            } else if (userEnterYear < correctYear) {
                 System.out.println("Daxil etdiyiniz tarix hadise tarixinden kicikdir, zehmet olmasa yeniden daxil edin");
+                yourTry++;
+                list.add(userEnterYear);
             } else {
                 System.out.println("Daxil etdiyiniz tarix hadise tarixinden boyukdur, zehmet olmasa yeniden daxil edin");
+                yourTry++;
+                list.add(userEnterYear);
             }
         }
     }
