@@ -2,7 +2,7 @@ package com.app;
 
 import java.util.*;
 
-public class FirstProject {
+public class Questions {
     private static List<Integer> list;
     private static String name;
     private static Scanner scanner = new Scanner(System.in);
@@ -63,4 +63,3 @@ public class FirstProject {
         }
     }
 }
-
