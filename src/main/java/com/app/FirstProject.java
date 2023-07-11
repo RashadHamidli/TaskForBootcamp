@@ -36,22 +36,21 @@ public class FirstProject {
         checkCorrect(eventYear);
     }
 
-    private static void checkCorrect(int i) {
+    private static void checkCorrect(int eventYear) {
         int yourTry = 0;
-        StringBuilder sb=new StringBuilder();
         while (true) {
             int userEnterYear = scanner.nextInt();
-            if (userEnterYear == i) {
+            if (userEnterYear == eventYear) {
                 yourTry++;
                 System.out.println("Tebrikler! " + name + " cavab dogrudur.");
-                System.out.println("dogru tarix: " + i + "\nsizin cehdleriniz: " + yourTry + "\nsizin daxil etdiyiniz cavablar: ");
+                System.out.println("dogru tarix: " + eventYear + "\nsizin cehdleriniz: " + yourTry + "\nsizin daxil etdiyiniz cavablar: ");
                 list.add(userEnterYear);
                 Collections.sort(list);
                 for (int year : list) {
                     System.out.print(year + ", ");
                 }
                 break;
-            } else if (userEnterYear < i) {
+            } else if (userEnterYear < eventYear) {
                 System.out.println("Daxil etdiyiniz tarix hadise tarixinden kicikdir, yeniden daxil edin");
                 yourTry++;
                 list.add(userEnterYear);
