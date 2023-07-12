@@ -2,11 +2,22 @@ package com.example;
 
 public class NewExmpl {
     public static void main(String[] args) {
+        swapNumbers();
+    }
+
+    public static void swapNumbers() {
+        int a = 5, b = 3;
+        b = a + b;
+        a = b - a;
+        b = b - a;
+        System.out.println(a + ", " + b);
+    }
+    public static void oppoisteNumber(){
         int number = 123456789;
         int result = 0;
         while (number != 0) {
-            int digit = number % 10;
-            result = result * 10 + digit;
+            int qaliq = number % 10;
+            result = result * 10 + qaliq;
             number /= 10;
         }
         System.out.println("oppoiste number " + result);
