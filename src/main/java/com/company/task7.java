@@ -8,7 +8,6 @@ public class task7 {
     public static void main(String[] args) {
         int i = 97;
         while (i % 7 == 0) {
-
         }
     }
 }
