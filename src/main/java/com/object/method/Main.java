@@ -1,4 +1,4 @@
-package com.OOP.object;
+package com.object.method;
 
 public class Main {
     public static void main(String[] args) {
