@@ -23,6 +23,7 @@ public class NewExmpl {
         System.out.println("oppoiste number " + result);
     }
 
+
     public static void opposingString() {
         String s = "123456789";
         char[] charArray = s.toCharArray();
