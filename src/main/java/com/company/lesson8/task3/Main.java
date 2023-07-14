@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Person person = new Person();
         person.setName("Rashad");
-        person.setNationality("Azerbaijan");
+        person.setNationality("Azerbaijani");
         person.setAge(29);
         System.out.println("Name: " + person.getName() + "\nNationality: " + person.getNationality() + "\nAge: " + person.getAge());
 
