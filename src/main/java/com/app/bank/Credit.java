@@ -3,9 +3,18 @@ package com.app.bank;
 public class Credit {
     private String sortCredit;
     private int period;
-    private double summa, faiz;
+    private double summa, faiz, result;
 
     public Credit() {
+    }
+
+
+    public Credit(int period, double summa) {
+        this.setPeriod(period);
+        this.setSumma(summa);
+        this.getFaiz();
+        this.getSortCredit();
+        this.getResult();
     }
 
     public Credit(String sortCredit, int period, double summa, double faiz) {
@@ -13,6 +22,21 @@ public class Credit {
         this.period = period;
         this.summa = summa;
         this.faiz = faiz;
+    }
+
+    public double resultSum() {
+        return getSumma() + (getSumma() * (getFaiz() * (getPeriod() / 12)));
+    }
+    public double resultMonthlySum() {
+        return resultSum()/period;
+    }
+
+    public double getResult() {
+        return result;
+    }
+
+    public void setResult(double umumiMebleg) {
+        result = umumiMebleg;
     }
 
     public String getSortCredit() {
@@ -45,5 +69,12 @@ public class Credit {
 
     public void setFaiz(double faiz) {
         this.faiz = faiz;
+    }
+
+    @Override
+    public String toString() {
+        return "Kreditin adi: " + sortCredit + "\nMuddet: " + period + "\nMebleg: " + summa +
+                "\nFaiz: " + faiz * 100 + "%" + "\nUmumi odenecek mebleg: " + resultSum()+
+                "\nAyliq odenilecek mebleg: "+resultMonthlySum();
     }
 }
