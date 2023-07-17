@@ -1,7 +1,7 @@
 package com.app.bank;
 
 public class Credit {
-    private String sortCredit;
+    private String sortCredit, promo;
     private int period;
     private double summa, faiz, result;
 
@@ -12,9 +12,10 @@ public class Credit {
     public Credit(int period, double summa) {
         this.setPeriod(period);
         this.setSumma(summa);
-        this.getFaiz();
-        this.getSortCredit();
-        this.getResult();
+//        this.getFaiz();
+//        this.getSortCredit();
+//        this.getResult();
+//        this.getPromo();
     }
 
     public Credit(String sortCredit, int period, double summa, double faiz) {
@@ -29,6 +30,14 @@ public class Credit {
     }
     public double resultMonthlySum() {
         return resultSum()/period;
+    }
+
+    public String getPromo() {
+        return promo;
+    }
+
+    public void setPromo(String promo) {
+        this.promo = promo;
     }
 
     public double getResult() {
@@ -73,7 +82,7 @@ public class Credit {
 
     @Override
     public String toString() {
-        return "Kreditin adi: " + sortCredit + "\nMuddet: " + period + "\nMebleg: " + summa +
+        return "Kreditin novu: " + sortCredit + "\nMuddet: " + period + "\nMebleg: " + summa +
                 "\nFaiz: " + faiz * 100 + "%" + "\nUmumi odenecek mebleg: " + resultSum()+
                 "\nAyliq odenilecek mebleg: "+resultMonthlySum();
     }
