@@ -7,6 +7,5 @@ public class Main {
         family.addMother(new Mother("agarg", "afarfg", 1985, 90));
         family.addChild(new Child[]{new Child("a", "b", 1, 1), new Child("c", "c", 2, 2)});
         System.out.println(family);
-
     }
 }
