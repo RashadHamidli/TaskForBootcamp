@@ -4,6 +4,14 @@ public class BancAccount {
     private int accNum;
     private double balance;
 
+    public BancAccount() {
+    }
+
+    public BancAccount(int accNum, double balance) {
+        this.accNum = accNum;
+        this.balance = balance;
+    }
+
     public int getAccNum() {
         return accNum;
     }
