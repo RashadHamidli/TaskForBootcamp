@@ -7,11 +7,10 @@ public class Main {
 
         System.out.println("-----------------");
 
-        Employee e = new Employee();
-        e.setId(2);
-        e.setName("Memmed");
-        e.setSalary(800);
-        System.out.println(e.toString()+"\nnet salary: " + e.netSalary(e.getSalary()));
+        employee.setId(2);
+        employee.setName("Memmed");
+        employee.setSalary(800);
+        System.out.println(employee.toString()+"\nnet salary: " + employee.netSalary(employee.getSalary()));
 
     }
 }
