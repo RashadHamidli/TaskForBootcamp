@@ -5,6 +5,15 @@ public class Employee {
     private String name;
     private double salary;
 
+    public Employee() {
+    }
+
+    public Employee(int id, String name, double salary) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
+
     public double netSalary(double salary) {
         return salary - (salary * 0.24);
     }
