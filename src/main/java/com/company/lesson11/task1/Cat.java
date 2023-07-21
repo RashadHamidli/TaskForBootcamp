@@ -1,4 +1,4 @@
-package com.company.lesson8.task1;
+package com.company.lesson11.task1;
 
 public class Cat extends Animal{
     @Override

@@ -1,4 +1,4 @@
-package com.company.lesson8.task2;
+package com.company.lesson11.task2;
 
 public class Duzbucaqli extends FiqurunHecmi {
     public Duzbucaqli(double en, double uzunluq) {
