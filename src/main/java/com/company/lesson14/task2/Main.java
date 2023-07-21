@@ -6,8 +6,6 @@ public class Main {
         e.setId(1);
         e.setName("Rashad");
         e.setSalary(500);
-        System.out.println(e.toString());
-        System.out.println("net maas: " + e.netSalary(e.getSalary()));
-
+        System.out.println(e.toString()+"\nnet salary: " + e.netSalary(e.getSalary()));
     }
 }

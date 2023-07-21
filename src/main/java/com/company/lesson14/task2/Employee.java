@@ -5,8 +5,8 @@ public class Employee {
     private String name;
     private double salary;
 
-    public double netSalary(double salary){
-        return salary-(salary*0.24);
+    public double netSalary(double salary) {
+        return salary - (salary * 0.24);
     }
 
     public int getId() {
@@ -35,6 +35,6 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "id=" + id + ", name='" + name  +", salary=" + salary;
+        return "id=" + id + "\nname=" + name + "\nsalary=" + salary;
     }
 }
