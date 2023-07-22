@@ -8,7 +8,6 @@ public class Family {
     private Mother mother;
     private Father father;
     private List<Child> children;
-    private Family family;
     private Pet pet;
 
     public Family(Mother mother, Father father) {
@@ -16,8 +15,6 @@ public class Family {
         this.father = father;
         this.children = new ArrayList<>();
     }
-
-
 
     public void addChild(Child child) {
         this.children.add(child);
@@ -42,28 +39,22 @@ public class Family {
         this.pet = pet;
     }
 
-    public Family getFamily() {
-        return family;
+    public Mother getMother() {
+        return mother;
     }
 
-    public void setFamily(Family family) {
-        this.family = family;
+    public void setMother(Mother mother) {
+        this.mother = mother;
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Family:\n");
-        sb.append("Mother: ").append(mother.toString()).append("\n");
-        sb.append("Father: ").append(father.toString()).append("\n");
-        sb.append("Children:\n");
-        for (Child child : children) {
-            sb.append(child.toString()).append("\n");
-        }
-        if (pet != null) {
-            sb.append("Pet: ").append(pet.toString()).append("\n");
-        }
-        return sb.toString();
+        return "Family{" +
+                "mother=" + mother +
+                ", father=" + father +
+                ", children=" + children +
+                ", pet=" + pet +
+                '}';
     }
 }
 

@@ -5,23 +5,12 @@ public class Human {
     private String surname;
     private int year;
     private int iq;
-    private Schedule schedule;
-    private Family family;
 
     public Human(String name, String surname, int year, int iq) {
         this.name = name;
         this.surname = surname;
         this.year = year;
         this.iq = iq;
-        this.schedule = new Schedule();
-    }
-
-    public Family getFamily() {
-        return family;
-    }
-
-    public void setFamily(Family family) {
-        this.family = family;
     }
 
     @Override
@@ -31,8 +20,6 @@ public class Human {
                 ", surname='" + surname + '\'' +
                 ", year=" + year +
                 ", iq=" + iq +
-                ", schedule=" + schedule +
-                ", family=" + family +
                 '}';
     }
 }

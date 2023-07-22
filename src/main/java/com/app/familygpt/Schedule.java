@@ -10,7 +10,11 @@ public class Schedule {
         this.schedule = new ArrayList<>();
     }
 
-    // Getters, setters, and methods to manipulate the schedule
-    // ...
+    @Override
+    public String toString() {
+        return "Schedule{" +
+                "schedule=" + schedule +
+                '}';
+    }
 }
 

@@ -17,9 +17,9 @@ public class Main {
 
         System.out.println(family.toString());
 
-//        family.deleteChild(0);
+        family.deleteChild(0);
 
-//        System.out.println(family.toString());
+        System.out.println(family.toString());
     }
 }
 
