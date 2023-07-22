@@ -1,15 +1,18 @@
 package com.app.familygpt;
 
+import com.app.happyFamily.Father;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Family {
-    private Human mother;
-    private Human father;
-    private List<Human> children;
+    private Mother mother;
+    private Father father;
+    private List<Child> children;
+    private Family family;
     private Pet pet;
 
-    public Family(Human mother, Human father) {
+    public Family(Mother mother, Father father) {
         this.mother = mother;
         this.father = father;
         this.children = new ArrayList<>();
@@ -17,18 +20,13 @@ public class Family {
 
 
 
-    public void addChild(Human child) {
+    public void addChild(Child child) {
         this.children.add(child);
-        child.setFamily(this);
     }
 
     public boolean deleteChild(int index) {
         if (index >= 0 && index < children.size()) {
-            Human child = children.remove(index);
-            if (child != null) {
-                child.setFamily(null);
-                return true;
-            }
+            Child child = children.remove(index);
         }
         return false;
     }
@@ -45,6 +43,14 @@ public class Family {
         this.pet = pet;
     }
 
+    public Family getFamily() {
+        return family;
+    }
+
+    public void setFamily(Family family) {
+        this.family = family;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -52,7 +58,7 @@ public class Family {
         sb.append("Mother: ").append(mother.toString()).append("\n");
         sb.append("Father: ").append(father.toString()).append("\n");
         sb.append("Children:\n");
-        for (Human child : children) {
+        for (Child child : children) {
             sb.append(child.toString()).append("\n");
         }
         if (pet != null) {
