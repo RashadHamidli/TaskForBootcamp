@@ -1,4 +1,4 @@
-package com.app.familygpt;
+package com.app.family;
 
 public class Pet {
     private String name;

@@ -1,4 +1,4 @@
-package com.app.familygpt;
+package com.app.family;
 
 
 import java.util.ArrayList;
@@ -37,14 +37,6 @@ public class Family {
 
     public void setPet(Pet pet) {
         this.pet = pet;
-    }
-
-    public Mother getMother() {
-        return mother;
-    }
-
-    public void setMother(Mother mother) {
-        this.mother = mother;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.app.familygpt;
+package com.app.family;
 
 import java.util.ArrayList;
 import java.util.List;

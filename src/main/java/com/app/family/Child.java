@@ -1,4 +1,4 @@
-package com.app.familygpt;
+package com.app.family;
 
 
 public class Child extends Human {
