@@ -1,48 +1,37 @@
 package com.app.happyFamily;
 
-import java.util.Arrays;
+import java.util.List;
 
 public class Family {
-    public Human father;
-    public Human mother;
-    public Human[] child;
+    private Father father;
+    private Mother mother;
+    private List<Child> child;
+    private List<Pet> pet;
 
-    public void addChild() {
-        
+    public String addChild(Child child) {
+        child.setName(child.getName());
+        child.setName(child.getName());
+        child.setYear(child.getYear());
+        child.setIq(child.getIq());
+        return "add successfully";
     }
 
-    public void countFamily(Father father, Mother mother, Child child) {
-        this.father = father;
-        this.mother = mother;
-        this.child = new Child[]{child};
+    public String deleteChild() {
+        return "delete successfully";
     }
 
-    public boolean deleteChild() {
-        return true;
-    }
-
-
-    public Child[] addChild(Child[] child) {
-        this.child = child;
-        return child;
-    }
-
-    public Father addFather(Father father) {
-        this.father = father;
-        return father;
-    }
-
-    public Mother addMother(Mother mother) {
-        this.mother = mother;
-        return mother;
-    }
+//    public int countFamily() {
+//        int count = 2 + child.size();
+//        return count;
+//    }
 
     @Override
     public String toString() {
         return "Family{" +
                 "father=" + father +
                 ", mother=" + mother +
-                ", child=" + Arrays.toString(child) +
+                ", child=" + child +
+                ", pet=" + pet +
                 '}';
     }
 }
