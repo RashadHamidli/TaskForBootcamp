@@ -23,4 +23,16 @@ public class Human {
     public void setFamily(Family family) {
         this.family = family;
     }
+
+    @Override
+    public String toString() {
+        return "Human{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", year=" + year +
+                ", iq=" + iq +
+                ", schedule=" + schedule +
+                ", family=" + family +
+                '}';
+    }
 }

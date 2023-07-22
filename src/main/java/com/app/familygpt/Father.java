@@ -1,6 +1,5 @@
 package com.app.familygpt;
 
-import com.app.happyFamily.Human;
 
 public class Father extends Human {
 
