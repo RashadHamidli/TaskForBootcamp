@@ -34,5 +34,17 @@ public class Main {
         };
         number.num(arr);
     }
+    public static void avrgCalc() {
+        double[] arr = {1, 3, 4, 9, 6, 5, 2, 7, 8};
 
+        ArrayAverage avrg = array -> {
+            double sum = 0;
+            for (double num : array) {
+                sum += num;
+            }
+            return sum / array.length;
+        };
+
+        System.out.println(avrg.calcAverage(arr));
+    }
 }
