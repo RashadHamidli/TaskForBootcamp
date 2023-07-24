@@ -1,15 +1,38 @@
 package com.object.lambda;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-//        Audible audible = () -> System.out.println("Dog is barking");
-//        audible.makeNoise();
-
-        Sum sum = Integer::sum;
-
-        Car car = ((start, stop) -> start + " herekete basladi " + stop + " dayandi");
-        System.out.println(car.run("BMW", "sonra"));
 
 
     }
+
+    public static void sumCalc() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("enter the number: ");
+        double num1 = scanner.nextDouble();
+        System.out.print("enter the number: ");
+        double num2 = scanner.nextDouble();
+
+        Sum sum = (a, b) -> a + b;
+        double result = sum.sumTwoInt(num1, num2);
+        System.out.println(result);
+    }
+    public static void findOddOrEvenNumber(){
+        int[] arr = {1, 3, 4, 9, 6, 5, 2, 7, 8};
+
+        Numb number = num -> {
+            for (int n : num) {
+                if (n % 2 == 0) {
+                    System.out.println(n + " is odd number");
+                } else {
+                    System.out.println(n + " is even number");
+                }
+            }
+            return true;
+        };
+        number.num(arr);
+    }
+
 }
