@@ -1,11 +1,30 @@
-package com.object.lambda;
+package com.company.lesson15;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        primeNumber();
+    }
 
-
+    public static void primeNumber() {
+        Scanner scanner = new Scanner(System.in);
+        int number = scanner.nextInt();
+        PrimeNumber primeNumber = num -> {
+            for (int i = 2; i <= num; i++) {
+                boolean b = true;
+                for (int j = 2; j < i; j++) {
+                    if (i % j == 0) {
+                        b = false;
+                        break;
+                    }
+                }
+                if (b) {
+                    System.out.print(i + " ");
+                }
+            }
+        };
+        primeNumber.primeNum(number);
     }
 
     public static void sumCalc() {
@@ -19,7 +38,8 @@ public class Main {
         double result = sum.sumTwoInt(num1, num2);
         System.out.println(result);
     }
-    public static void findOddOrEvenNumber(){
+
+    public static void findOddOrEvenNumber() {
         int[] arr = {1, 3, 4, 9, 6, 5, 2, 7, 8};
 
         Numb number = num -> {
@@ -34,6 +54,7 @@ public class Main {
         };
         number.num(arr);
     }
+
     public static void avrgCalc() {
         double[] arr = {1, 3, 4, 9, 6, 5, 2, 7, 8};
 

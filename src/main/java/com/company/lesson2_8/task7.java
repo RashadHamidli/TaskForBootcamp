@@ -1,4 +1,4 @@
-package com.company;
+package com.company.lesson2_8;
 
 import org.w3c.dom.ls.LSOutput;
 
