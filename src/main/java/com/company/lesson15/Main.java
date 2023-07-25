@@ -9,6 +9,7 @@ public class Main {
 
     public static void primeNumber() {
         Scanner scanner = new Scanner(System.in);
+        System.out.print("ededi daxil edin: ");
         int number = scanner.nextInt();
         PrimeNumber primeNumber = num -> {
             for (int i = 2; i <= num; i++) {
