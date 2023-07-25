@@ -7,6 +7,11 @@ public class GenericMethodTest {
         }
         System.out.println();
     }
+    private static void printArr(Integer[] input){
+        for (Integer element: input){
+            System.out.printf("%s ", element);
+        }
+    }
 
     public static void main(String args[]) {
         Integer[] intArray = {1, 2, 3, 4, 5};
@@ -21,5 +26,9 @@ public class GenericMethodTest {
 
         System.out.println("\nArray characterArray contains:");
         printArray(charArray);
+
+        System.out.println("non generics method");
+        printArr(intArray);
+
     }
 }
