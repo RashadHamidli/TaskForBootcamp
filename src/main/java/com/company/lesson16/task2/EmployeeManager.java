@@ -12,4 +12,13 @@ public class EmployeeManager<MyType> {
         this.registerNumber = companyName + ("-") + name.substring(i) + surname.substring(v);
         return registerNumber.toUpperCase();
     }
+
+    @Override
+    public String toString() {
+        return  "companyName='" + companyName + '\'' +
+                ", salary=" + salary +
+                ", registerNumber='" + getRegisterNumber() + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname;
+    }
 }
