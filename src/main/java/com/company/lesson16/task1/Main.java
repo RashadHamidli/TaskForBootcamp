@@ -1,4 +1,4 @@
-package com.company.lesson16;
+package com.company.lesson16.task1;
 
 import java.util.List;
 
@@ -16,9 +16,8 @@ public class Main {
         studentName.addList("Mamed");
         List<Integer> schoolNo=studenNo.getList();
         List<String> studentInfo=studentName.getList();
-        for (int i = 0; i <studentInfo.size(); i++) {
-            System.out.println("----------------\n< "+(i+1)+". Öğrenci Bilgisi >\n----------------\n-> " +
-                    "Öğrenci Numarası: "+schoolNo.get(i)+"\n-> Öğrenci İsmi: "+studentInfo.get(i));
+        for (int i = 0; i <schoolNo.size(); i++) {
+            System.out.println("----------------\n< "+(i+1)+". Öğrenci Bilgisi >\n----------------\n-> Öğrenci Numarası: "+schoolNo.get(i)+"\n-> Öğrenci İsmi: "+studentInfo.get(i));
         }
         System.out.println("----------------");
     }

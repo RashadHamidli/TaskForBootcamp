@@ -1,4 +1,4 @@
-package com.company.lesson16;
+package com.company.lesson16.task1;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,5 +12,9 @@ public class ListManager<T> {
 
     public void addList(T element) {
         this.list.add(element);
+    }
+
+    public void setList(List<T> list) {
+        this.list = list;
     }
 }
