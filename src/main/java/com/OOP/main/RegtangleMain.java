@@ -4,10 +4,9 @@ import com.OOP.entity.Regtangle;
 
 public class RegtangleMain {
     public static void main(String[] args) {
-        Regtangle r = new Regtangle(5, 7);
-        double area = r.getWidth() * r.getHeight();
-        System.out.println("Regtangle are = " + area);
-        double perimetr = r.getWidth() + r.getHeight();
-        System.out.println("Regtangle perimetr = " + perimetr);
+        Regtangle r = new Regtangle();
+        r.area(3, 5);
+        r.perimetr(3,5);
+
     }
 }
