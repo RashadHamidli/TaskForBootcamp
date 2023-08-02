@@ -1,7 +1,17 @@
 package com.company.lesson16.task5;
 
+import java.util.ArrayList;
+
 public class Foo {
     public static void main(String[] args) {
-
+        ArrayList<String> regions = new ArrayList<>();
+        regions.add("Quba");
+        regions.add("Oğuz");
+        regions.add("Qəbələ");
+        regions.add("Xaçmaz");
+        regions.add("Ağsu");
+        regions.add("Oğuz");
+        regions.add(3, "Qusar");
+        regions.forEach(region -> System.out.print(region + ", "));
     }
 }
