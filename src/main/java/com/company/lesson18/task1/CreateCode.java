@@ -14,7 +14,7 @@ public class CreateCode {
         for(int i=0;i<16;i++){
             if(i==0 || i==4 || i==8 || i==12){ // Oluşturulan anahtarın her zaman ilk harflerinin bir metin olmasını istediğimden sorgulama yaptırıyorum.
                 randomValue = random.nextInt(26)+65;
-                if(lisenceKey.contains((char)randomValue) == true) // ArrayList üzerinde atanan değerin olup olmadığını kontrol ediyor.
+                if(lisenceKey.contains((char)randomValue) == true) // ArrayListT üzerinde atanan değerin olup olmadığını kontrol ediyor.
                     randomValue = random.nextInt(20)+71;
                 if(lisenceKey.contains((char)randomValue)==true) // Contains bir Collection metodudur.
                     randomValue = random.nextInt(25)+66;
