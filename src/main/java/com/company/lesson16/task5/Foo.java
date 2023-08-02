@@ -12,6 +12,13 @@ public class Foo {
         regions.add("Ağsu");
         regions.add("Oğuz");
         regions.add(3, "Qusar");
-        regions.forEach(region -> System.out.print(region + ", "));
+        regions.add(3, "Gusar");
+        Object clone = regions.clone();
+        System.out.println(clone);
+        regions.add(0, "Baki");
+        boolean b = regions.contains("Baki");
+        System.out.println(b);
+        regions.forEach(System.out::println);
+//        regions.forEach(region -> System.out.print(region + ", "));
     }
 }
