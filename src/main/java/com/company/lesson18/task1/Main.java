@@ -1,6 +1,4 @@
-package com.company.lesson16.task5;
-
-import java.util.Random;
+package com.company.lesson18.task1;
 
 public class Main {
     public static void main(String[] args) {
