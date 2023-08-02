@@ -2,9 +2,8 @@ package com.company.lesson18.task2;
 
 
 import java.util.LinkedList;
-import java.util.List;
 
-public class LinkedListT {
+public class $LinkedList {
     public static void main(String[] args) {
         LinkedList<String> list = new LinkedList<>();
         list.addLast("red");

@@ -2,7 +2,7 @@ package com.company.lesson18.task2;
 
 import java.util.*;
 
-public class ArrayListT {
+public class $ArrayList {
     public static void main(String[] args) {
 
         ArrayList<String> list = new ArrayList<>();
