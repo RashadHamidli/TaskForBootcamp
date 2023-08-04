@@ -20,6 +20,8 @@ public class Main {
         set.add(oktay);
         set.add(sait);
 
+//        set.forEach(System.out::println);
+
         Iterator itr = set.iterator(); // HashSet yapımızın içerisinde dolaşmak için oluşturduk.
         System.out.println("[Çalışan No]\t[Adı]\t\t\t[Soyadı]\t\t[Mesleği]\t\t\t[Maaşı]\t\t\t\t[İzin Günü]");
         while (itr.hasNext()){
