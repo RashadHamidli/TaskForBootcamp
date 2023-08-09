@@ -23,11 +23,9 @@ public class Main {
 //        System.out.println("-> HashMap Üzerinde containsValue(\"Mert\") Kullanımı: " + hMap.containsValue("Mert"));
 //        System.out.println("-> Anahtar Verileri (keySet): " + hMap.keySet());
 //        System.out.println("-> HashMap İçerisindeki Değerler (values): " + hMap.values());
-//        System.out.println("-> HashCode Değerimiz (hashCode): "+ hMap.hashCode()+"\n"+ayrac);
-//
+//        System.out.println("-> HashCode Değerimiz (hashCode): "+ hMap.hashCode()rahshnnmikki
 //        System.out.println(hMap.keySet());
 //        System.out.println(hMap.entrySet());
-
         String ayrac = new String(new char[15]).replace("\0","-");
         ///---> Hashtable Tanımlaması <---\\\
         Hashtable table = new Hashtable();
@@ -45,7 +43,6 @@ public class Main {
         System.out.println("-> containsKey(1836025) Metot Kullanımı: "+ table.containsKey(1836025));
         System.out.println("-> keys() Metot Kullanımı: "+ table.keys());
         System.out.println("-> hashCode() Metot Kullanımı: " + table.hashCode());
-        System.out.println("-> elements() Metot Kullanımı: " + table.elements()+"\n"+ayrac);
-
+        System.out.println("-> elements() Metot Kullanımı: " + table.elements()+"\n"+ayrac)
     }
 }
