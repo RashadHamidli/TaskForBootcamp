@@ -26,6 +26,7 @@ public class Main {
         System.out.println("[Çalışan No]\t[Adı]\t\t\t[Soyadı]\t\t[Mesleği]\t\t\t[Maaşı]\t\t\t\t[İzin Günü]");
         while (itr.hasNext()){
             System.out.println(itr.next());
+
         }
     }
 }
