@@ -10,8 +10,8 @@ public class Strm {
 
         List<Integer> list = List.of(1, 3, 5, 4, 8, 6, 7, 9, 2, 4, 6, 8, 1, 2, 3);
         Optional<Integer> l = list.stream()
-                .findFirst()
-                .filter(i -> i % 2 == 0);
+                .filter(i -> i % 2 == 0)
+                .max();
         System.out.println(l);
 
     }
