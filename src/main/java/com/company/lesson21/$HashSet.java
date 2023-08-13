@@ -55,7 +55,7 @@ public class $HashSet {
         hashSet1.forEach(System.out::println);
 
         hashSet.retainAll(hashSet1);
-        System.out.println("retainAll() methodundan sonra elementleri");
+        System.out.println("elementlerin kesismesi");
         hashSet.forEach(System.out::println);
     }
 
