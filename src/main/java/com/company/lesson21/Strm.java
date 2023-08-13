@@ -1,9 +1,18 @@
 package com.company.lesson21;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
+
 public class Strm {
     public static void main(String[] args) {
 
-
+        List<Integer> list = List.of(1, 3, 5, 7, 9, 2, 4, 6, 8);
+        Stream<Integer> l = list.stream()
+                .filter(i -> i % 2 == 0)
+                .filter(i -> i > 5)
+                .filter(i -> i < 7);
+        l.forEach(System.out::println);
 
     }
 }

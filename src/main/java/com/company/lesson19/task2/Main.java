@@ -43,6 +43,6 @@ public class Main {
         System.out.println("-> containsKey(1836025) Metot Kullanımı: "+ table.containsKey(1836025));
         System.out.println("-> keys() Metot Kullanımı: "+ table.keys());
         System.out.println("-> hashCode() Metot Kullanımı: " + table.hashCode());
-        System.out.println("-> elements() Metot Kullanımı: " + table.elements()+"\n"+ayrac)
+        System.out.println("-> elements() Metot Kullanımı: " + table.elements()+"\n"+ayrac);
     }
 }
