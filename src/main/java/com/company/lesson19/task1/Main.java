@@ -13,7 +13,7 @@ public class Main {
         WorkerDetails oktay = new WorkerDetails(984,"Oktay","Güden","Grafiker",4800);
         WorkerDetails sait = new WorkerDetails(482,"Sait","Öztaş","Mühendis",5800);
 
-        ///---> HashSet Oluşturup Çalışanları Ekleyelim <---\\\
+        ///---> $HashSet Oluşturup Çalışanları Ekleyelim <---\\\
         HashSet<WorkerDetails> set = new HashSet<>();
         set.add(metehan);
         set.add(kerem);
@@ -22,7 +22,7 @@ public class Main {
 
 //        set.forEach(System.out::println);
 
-        Iterator itr = set.iterator(); // HashSet yapımızın içerisinde dolaşmak için oluşturduk.
+        Iterator itr = set.iterator(); // $HashSet yapımızın içerisinde dolaşmak için oluşturduk.
         System.out.println("[Çalışan No]\t[Adı]\t\t\t[Soyadı]\t\t[Mesleği]\t\t\t[Maaşı]\t\t\t\t[İzin Günü]");
         while (itr.hasNext()){
             System.out.println(itr.next());
