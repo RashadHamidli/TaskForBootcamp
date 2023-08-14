@@ -9,12 +9,14 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Strm {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MyException {
 
-        String nullableValue = "deyer var";
-        Optional<String> optionalNullableValue = Optional.ofNullable(nullableValue);
-        String s = optionalNullableValue.orElse("deyer yoxdur");
-        System.out.println(s);
+        Optional<String> opt = Optional.ofNullable(null);
+//        String a = opt.get();
+//        String s=opt.orElse("deyer yoxdur orElse");
+//        String s1 = opt.orElseGet(() -> "deyer yoxdur orElseGet");
+        String s2=opt.orElseThrow(MyException::new);
+        System.out.println(s2);
 
 
     }
