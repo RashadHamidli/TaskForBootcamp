@@ -1,22 +1,20 @@
 package com.company.lesson22;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 public class Strm {
     public static void main(String[] args) throws Exception {
 
-        Optional<String> opt = Optional.empty();
-        String s = opt.orElse("deyer nulldur");
-        System.out.println(s);
-
-
+        List<Integer> list = Arrays.asList(1, 2, 8, 3, 6, 4, 6, 5, 4, 9, 5, 7, 8);
+        Optional<Integer> sum = list.stream()
+                .filter(x -> x % 2 == 0)
+                .sorted()
+                .distinct()
+                .min((o1, o2) -> o1);
+        System.out.println(sum);
     }
-
-
 }
