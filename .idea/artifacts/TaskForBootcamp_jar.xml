@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TaskForBootcamp:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/TaskForBootcamp_jar</output-path>
+    <root id="archive" name="TaskForBootcamp.jar">
+      <element id="module-output" name="TaskForBootcamp" />
+    </root>
+  </artifact>
+</component>
