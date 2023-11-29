@@ -1,4 +1,4 @@
 package com.OOP.poly;
 
-public class Mercedes {
+public class Mercedes extends Car{
 }
