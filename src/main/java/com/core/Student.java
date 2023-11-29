@@ -4,6 +4,7 @@ public class Student {
     private Long id = 1L;
     private String name = "A";
     private String surname = "B";
+    String test;
 
     public Student() {
     }

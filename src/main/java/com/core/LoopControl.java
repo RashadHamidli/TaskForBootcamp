@@ -8,5 +8,6 @@ public class LoopControl {
         Student student=new Student();
         String string = student.toString();
         System.out.println(string);
+        String test = student.test;
     }
 }
