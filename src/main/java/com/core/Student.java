@@ -1,9 +1,12 @@
 package com.core;
 
 public class Student {
-    private Long id;
-    private String name;
-    private String surname;
+    private Long id = 1L;
+    private String name = "A";
+    private String surname = "B";
+
+    public Student() {
+    }
 
     public Student(Long id, String name, String surname) {
         this.id = id;
