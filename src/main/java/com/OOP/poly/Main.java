@@ -1,28 +1,14 @@
 package com.OOP.poly;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.io.File;
+import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        ArrayList<String> list = new ArrayList<>();
-        list.add("a");
-        list.add("c");
-        list.add("d");
-        list.add("b");
-        Collections.sort(list);
-        for (String l : list) {
-            System.out.println(l);
-        }
-        System.out.println("---------------------");
-        list.forEach(System.out::println);
-        System.out.println("---------------------");
-        Stream<String> sortedList = list.stream().sorted();
-        sortedList.forEach(System.out::println);
+        File file = new File("test.txt");
+        boolean newFile = file.createNewFile();
+        System.out.println(newFile);
     }
 }
+
