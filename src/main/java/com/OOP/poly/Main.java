@@ -1,14 +1,19 @@
 package com.OOP.poly;
 
-import java.io.File;
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+        public static void main(String [] args) {
+            Salary s = new Salary("Mohd Mohtashim", "Ambehta, UP", 3, 3600.00);
+            Employee e = new Salary("John Adams", "Boston, MA", 2, 2400.00);
+            System.out.println("Call mailCheck using Salary reference --");
+            s.mailCheck();
+            System.out.println("\n Call mailCheck using Employee reference--");
+            e.mailCheck();
+        }
 
-        File file = new File("test.txt");
-        boolean newFile = file.createNewFile();
-        System.out.println(newFile);
-    }
+
+
+
 }
 
