@@ -17,6 +17,7 @@ public class Student {
 
     @Override
     public String toString() {
+        System.out.printf("| id: %d | name: %s  | surname: %s |", id, name, surname);
         return String.format("| id: %d | name: %s | surname: %s |", id, name, surname);
     }
 }
