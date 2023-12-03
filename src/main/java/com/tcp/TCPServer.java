@@ -12,7 +12,8 @@ public class TCPServer {
     public static void main(String[] args) {
         try {
             ServerSocket serverSocket = new ServerSocket(8888);
-            System.out.println("Sunucu başlatıldı. Port: 8888");
+            int localPort = serverSocket.getLocalPort();
+            System.out.println("Sunucu başlatıldı. Port:" + localPort);
 
             Socket clientSocket = serverSocket.accept();
             System.out.println("İstemci bağlandı. IP: " + clientSocket.getInetAddress().getHostAddress());

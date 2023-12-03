@@ -11,7 +11,8 @@ public class TCPClient {
     public static void main(String[] args) {
         try {
             Socket socket = new Socket("localhost", 8888);
-            System.out.println("Sunucuya bağlandı.");
+            int port = socket.getPort();
+            System.out.println("Sunucuya bağlandı. port: "+port);
 
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
