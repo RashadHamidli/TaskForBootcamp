@@ -4,7 +4,7 @@ public class AverageCalculator {
     public static void main(String[] args) {
         double[] numbers = { 2.5, 3.5, 4.5, 5.5, 6.5 };
 
-        // Lambda ifadesi ile dizinin ortalamasını bulma
+        // MyLambda ifadesi ile dizinin ortalamasını bulma
         double average = calculateAverage(numbers);
 
         System.out.println("Original Array:");
@@ -12,7 +12,7 @@ public class AverageCalculator {
         System.out.println("Average: " + average);
     }
 
-    // Lambda ifadesi ile dizinin ortalamasını bulma
+    // MyLambda ifadesi ile dizinin ortalamasını bulma
     private static double calculateAverage(double[] array) {
         double sum = 0;
         for (double num : array) {
