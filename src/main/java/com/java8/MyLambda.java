@@ -3,14 +3,14 @@ package com.java8;
 import java.lang.reflect.Array;
 
 @FunctionalInterface
-interface MySum {
+interface MySumInt {
     void sum(double a, double b);
 }
 
 public class MyLambda {
     public static void main(String[] args) {
 
-        MySum mySum = (a, b) -> System.out.println(a + b);
+        MySumInt mySum = (a, b) -> System.out.println(a + b);
         mySum.sum(3.29, 5.76);
 
         System.out.println("---------------------");
@@ -19,7 +19,7 @@ public class MyLambda {
 
 
     public static void sum(double a, double b) {
-        MySum sum = new MySum() {
+        MySumInt sum = new MySumInt() {
             @Override
             public void sum(double a, double b) {
                 System.out.printf("sum: %.2f + %.2f = %.2f ", a, b, (a + b));
