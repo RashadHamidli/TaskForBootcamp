@@ -1,11 +1,12 @@
 package com.feature;
 
+@FunctionalInterface
 public interface Feature {
     static void main(String[] args) {
 //        Feature feature=()-> System.out.println("salam");
 //        feature.a();
 
-        Feature feature =(a, b)-> System.out.println(a+b);
+        Feature feature = (a, b) -> System.out.println(a + b);
 //        feature.b(3,5);
     }
 
