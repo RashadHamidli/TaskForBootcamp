@@ -2,23 +2,14 @@ package com.feature;
 
 public interface Feature {
     static void main(String[] args) {
-        Feature feature = new Feature() {
-            @Override
-            public void a() {
-                System.out.println("print method a");
-            }
+//        Feature feature=()-> System.out.println("salam");
+//        feature.a();
 
-            @Override
-            public void b(int a, int b) {
-                System.out.println("print a+b=" + a + b);
-            }
-        };
-        feature.a();
-        feature.b(3,5);
-
+        Feature feature =(a, b)-> System.out.println(a+b);
+//        feature.b(3,5);
     }
 
-    void a();
+//    void a();
 
     void b(int a, int b);
 }
