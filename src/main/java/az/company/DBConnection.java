@@ -14,8 +14,8 @@ public class DBConnection {
             System.out.println("database connected");
             return connection;
         } catch (SQLException e) {
-            System.out.println("database not connected");
-            throw new RuntimeException(e);
+            var errorMessage = "database not connected";
+            throw new DatabaseOperationException(errorMessage, e);
         }
     }
 
