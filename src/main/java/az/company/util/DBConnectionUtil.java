@@ -1,4 +1,4 @@
-package az.company.db;
+package az.company.util;
 
 import az.company.exceptions.DatabaseOperationException;
 
@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBConnection {
+public class DBConnectionUtil {
     public static Connection getConnection() {
         try {
             Class.forName("org.postgresql.Driver");

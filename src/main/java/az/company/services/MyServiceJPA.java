@@ -1,15 +1,14 @@
 package az.company.services;
 
+import az.company.util.EntityManagerUtil;
 import az.company.entities.User;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.*;
 import jakarta.transaction.Transactional;
 
 import java.util.List;
 
 public class MyServiceJPA {
-    @PersistenceContext
-    private EntityManager entityManager;
+    private EntityManager entityManager = EntityManagerUtil.getEntityManager();
 
     @Transactional
     public void updateUser(Integer id, User user) {
