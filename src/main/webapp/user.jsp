@@ -19,7 +19,10 @@
     MyService myService = new MyService();
     List<User> users = myService.selectUsers();
     for (User user : users) { %>
-<p><%= user.name() %>
+<p><%= user.id() %>
+    <%= user.name() %>
+    <%= user.surname() %>
+    <%= user.email() %>
 </p>
 <% }
 %>
