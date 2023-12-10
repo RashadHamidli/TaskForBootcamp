@@ -1,4 +1,4 @@
-package az.company;
+package az.company.servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

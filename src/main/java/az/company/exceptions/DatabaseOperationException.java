@@ -1,4 +1,4 @@
-package az.company;
+package az.company.exceptions;
 
 public class DatabaseOperationException extends RuntimeException {
     public DatabaseOperationException(String message) {

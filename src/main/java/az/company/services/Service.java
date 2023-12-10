@@ -1,4 +1,8 @@
-package az.company;
+package az.company.services;
+
+import az.company.entities.User;
+import az.company.db.DBConnection;
+import az.company.exceptions.DatabaseOperationException;
 
 import java.sql.*;
 import java.util.ArrayList;

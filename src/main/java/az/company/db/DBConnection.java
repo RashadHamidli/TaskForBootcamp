@@ -1,4 +1,6 @@
-package az.company;
+package az.company.db;
+
+import az.company.exceptions.DatabaseOperationException;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
