@@ -1,7 +1,7 @@
 package az.company.servlet;
 
-import az.company.services.MyService;
 import az.company.entities.User;
+import az.company.services.MyServiceJPA;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRegistration;
@@ -27,16 +27,16 @@ public class UserServlet extends HttpServlet {
             System.out.println(key);
         }
         String id = req.getParameter("id");
-        MyService myService = new MyService();
+        MyServiceJPA service = new MyServiceJPA();
         PrintWriter writer = resp.getWriter();
         HttpSession session = req.getSession();
         if (id != null && !id.isEmpty()) {
             Integer intId = id.strip().transform(Integer::parseInt);
-            User user = myService.selectOneUser(intId);
+            User user = service.selectOneUser(intId);
             session.setAttribute("users", user);
             writer.println(user);
         } else {
-            List<User> list = myService.selectUsers().stream().toList();
+            List<User> list = service.selectUsers().stream().toList();
             session.setAttribute("users", list);
             writer.println(list);
         }

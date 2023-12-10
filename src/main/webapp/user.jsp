@@ -1,7 +1,8 @@
-<%@ page import="az.company.services.MyService" %>
-<%@ page import="az.company.services.MyService" %>
+<%@ page import="az.company.services.MyServiceJDBC" %>
+<%@ page import="az.company.services.MyServiceJDBC" %>
 <%@ page import="az.company.entities.User" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="az.company.services.MyServiceJDBC" %><%--
   Created by IntelliJ IDEA.
   User: mr_ra
   Date: 10.12.2023
@@ -16,8 +17,8 @@
 <body>
 
 <%
-    MyService myService = new MyService();
-    List<User> users = myService.selectUsers();
+    MyServiceJDBC myServiceJDBC = new MyServiceJDBC();
+    List<User> users = myServiceJDBC.selectUsers();
     for (User user : users) { %>
 <p><%= user.id() %>
     <%= user.name() %>
