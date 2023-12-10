@@ -8,7 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Service {
+public class MyService {
     public void updateUser(Integer id, User user) {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("UPDATE users SET name=?, surname=?, email=? WHERE id=?")) {
