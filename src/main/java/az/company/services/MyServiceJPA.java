@@ -9,6 +9,10 @@ import java.util.List;
 
 public class MyServiceJPA {
     private EntityManager entityManager = EntityManagerUtil.getEntityManager();
+    @Transactional
+    public void createUser(User user){
+        entityManager.persist(user);
+    }
 
     @Transactional
     public void updateUser(Integer id, User user) {

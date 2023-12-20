@@ -11,13 +11,14 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        User user=new User("Aa", "Bb", "c@mail.com", "abc");
 
-        try (EntityManagerFactory entityManagerFactory =
-                     Persistence.createEntityManagerFactory("myPersistenceUnit");
+        try (EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myPersistenceUnit");
              EntityManager entityManager = entityManagerFactory.createEntityManager()) {
+//            entityManager.persist(user);
 
-            User user = entityManager.find(User.class, 2);
-            System.out.println(user);
+            User u = entityManager.find(User.class, 1);
+            System.out.println(u.getEmail());
 //            MyServiceJPA service = new MyServiceJPA();
 //            List<User> users = service.selectUsers();
 //            users.stream().forEach(System.out::println);
