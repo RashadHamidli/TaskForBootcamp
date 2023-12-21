@@ -18,11 +18,12 @@ public class Main {
 //            entityManager.persist(user);
 
             User u = entityManager.find(User.class, 1);
-            System.out.println(u.getEmail());
+            System.out.println(u);
 //            MyServiceJPA service = new MyServiceJPA();
 //            List<User> users = service.selectUsers();
 //            users.stream().forEach(System.out::println);
         } catch (Exception e) {
+            e.printStackTrace()
             e.printStackTrace();
         }
     }
