@@ -23,7 +23,6 @@ public class Main {
 //            List<User> users = service.selectUsers();
 //            users.stream().forEach(System.out::println);
         } catch (Exception e) {
-            e.printStackTrace()
             e.printStackTrace();
         }
     }
