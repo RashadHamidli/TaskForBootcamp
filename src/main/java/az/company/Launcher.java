@@ -1,7 +1,5 @@
 package az.company;
 
-import az.company.config.Configuration;
-import az.company.entities.Message;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

@@ -1,6 +1,5 @@
 package az.company.services;
 
-import az.company.util.EntityManagerUtil;
 import az.company.entities.User;
 import jakarta.persistence.*;
 import jakarta.transaction.Transactional;
@@ -8,7 +7,6 @@ import jakarta.transaction.Transactional;
 import java.util.List;
 
 public class MyServiceJPA {
-    private EntityManager entityManager = EntityManagerUtil.getEntityManager();
 
     @Transactional
     public void createUser(User user) {
