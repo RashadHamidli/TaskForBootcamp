@@ -1,7 +1,6 @@
 package az.company.servlet;
 
 import az.company.entities.User;
-import az.company.services.MyServiceJPA;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRegistration;
