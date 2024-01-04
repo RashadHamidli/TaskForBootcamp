@@ -3,13 +3,16 @@ package com.company.controller.algortims;
 public class Alg1 {
     public static void main(String[] args) {
         int[] arr = {23, 45, 78, 2, 34, 12, 5, 21, 14, 19, 42, 66, 5};
-//        for (int print : arr) {
-//            System.out.print(print + ", ");
-//        }
+
+        int[] ints = ascArr(arr);
+        for (int a : ints) {
+            System.out.print(a + ", ");
+        }
+        System.out.println();
 
         int minArr = minNumberArr(arr);
         System.out.println("min : " + minArr);
-        int maxArr = maxNumforArr(arr);
+        int maxArr = maxNumberArr(arr);
         System.out.println("max : " + maxArr);
     }
 
@@ -23,7 +26,7 @@ public class Alg1 {
         return min;
     }
 
-    public static int maxNumforArr(int[] arr) {
+    public static int maxNumberArr(int[] arr) {
         int max = arr[0];
         for (int i = 1; i < arr.length; i++) {
             if (arr[i] > max) {
@@ -32,4 +35,18 @@ public class Alg1 {
         }
         return max;
     }
+
+    public static int[] ascArr(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = 0; j < arr.length - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+
 }
