@@ -1,4 +1,4 @@
-package com.company.controller.algortims;
+package com.company.algortims.algortims;
 
 import java.util.Scanner;
 

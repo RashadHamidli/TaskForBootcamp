@@ -1,4 +1,4 @@
-package com.company.controller.algortims;
+package com.company.algortims.algortims;
 
 public class Alg1 {
     public static void main(String[] args) {
