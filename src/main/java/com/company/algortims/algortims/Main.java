@@ -5,11 +5,12 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<String> list = new ArrayList();
-        list.add("bir");
-        list.stream().forEach(System.out::println);
-        String s = (String) list.get(0);
-        System.out.println(s);
+        Integer a=111;
+        Integer b=333;
+        int i = a.compareTo(b);
+        System.out.println(i);
+        int compare = Integer.compare(a, b);
+        System.out.println(compare);
 
     }
 }
