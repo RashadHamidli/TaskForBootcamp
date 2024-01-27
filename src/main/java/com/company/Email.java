@@ -11,12 +11,20 @@ public class Email implements Runnable{
 
     @Override
     public void run() {
-        System.out.println("email gondermek 5 saniye sonra bas verecek\n "+Thread.currentThread().getName()+" ise basladi");
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        System.out.println("email gonderildi\n"+Thread.currentThread().getName()+" isini bitirdi");
+//        System.out.println("email gondermek 5 saniye sonra bas verecek\n "+Thread.currentThread().getName()+" ise basladi");
+//        try {
+//            Thread.sleep(5000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+//        System.out.println("email gonderildi\n"+Thread.currentThread().getName()+" isini bitirdi");
+    }
+
+    @Override
+    public String toString() {
+        return "Email{" +
+                "email='" + email + '\'' +
+                ", content='" + content + '\'' +
+                '}';
     }
 }

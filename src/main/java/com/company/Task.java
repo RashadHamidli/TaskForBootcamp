@@ -11,12 +11,20 @@ public class Task implements Runnable{
 
     @Override
     public void run() {
-        System.out.println("task add etmek 3 saniye sonra bitecek\n "+Thread.currentThread().getName()+" ise basladi");
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        System.out.println("task add edildi\n"+Thread.currentThread().getName()+" isini bitirdi");
+//        System.out.println("task add etmek 3 saniye sonra bitecek\n "+Thread.currentThread().getName()+" ise basladi");
+//        try {
+//            Thread.sleep(3000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+//        System.out.println("task add edildi\n"+Thread.currentThread().getName()+" isini bitirdi");
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
