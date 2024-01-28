@@ -6,14 +6,21 @@ import java.util.concurrent.Executors;
 public class Controller {
 
     public void addTask() {
-        Task task = new Task("mytask", "bu menim yeni taskimdir");
+        Task task = null;
+        for (int i = 0; i < 1000000; i++) {
+            task = new Task("a", "aa");
+            System.out.println(task);
+        }
         Thread thread = new Thread(task);
         thread.start();
     }
 
     public void sendEmail() {
-        Email email = new Email("rashad@gmai.com", "siz yeni task elave etdiniz");
-        Thread thread = new Thread(email);
+        Email email = null;
+        for (int i = 0; i < 1000000; i++) {
+            email = new Email("b", "bb");
+            System.out.println(email);
+        }        Thread thread = new Thread(email);
         thread.start();
     }
 
@@ -22,6 +29,18 @@ public class Controller {
         addTask();
     }
 
+    public void addTaskAndSendEmailSimple() {
+        Task task = null;
+        for (int i = 0; i < 1000000; i++) {
+            task = new Task("a", "aa");
+            System.out.println(task);
+        }
+        Email email = null;
+        for (int i = 0; i < 1000000; i++) {
+            email = new Email("b", "bb");
+            System.out.println(email);
+        }
+    }
     public void addTaskAndSendEmailExecutors() {
         Task task = null;
         for (int i = 0; i < 1000000; i++) {
@@ -34,23 +53,11 @@ public class Controller {
             System.out.println(email);
         }
 
-        ExecutorService executorService = Executors.newFixedThreadPool(20);
+        ExecutorService executorService = Executors.newFixedThreadPool(2);
         executorService.submit(task);
         executorService.submit(email);
 
         executorService.shutdown();
-    }
-    public void addTaskAndSendEmailSimple() {
-        Task task = null;
-        for (int i = 0; i < 1000000; i++) {
-            task = new Task("a", "aa");
-            System.out.println(task);
-        }
-        Email email = null;
-        for (int i = 0; i < 1000000; i++) {
-            email = new Email("b", "bb");
-            System.out.println(email);
-        }
     }
 
 
