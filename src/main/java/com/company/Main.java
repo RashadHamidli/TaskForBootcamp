@@ -9,38 +9,40 @@ import java.util.logging.Logger;
 public class Main {
     private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
 
-//    public static void main(String[] args) throws InterruptedException {
-//
-//        Thread thread1 = new Thread(() -> {
-//            for (int i = 0; i < 1000000; i++) {
-//                Email email = new Email("b", "bb");
-//                System.out.println(email);
-//            }
-//        });
-//
-//        Thread thread2 = new Thread(() -> {
-//            for (int i = 0; i < 1000000; i++) {
-//                Task task = new Task("b", "bb");
-//                System.out.println(task);
-//            }
-//        });
-//
-//        thread1.start();
-//        thread2.start();
-//    }
-public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
 
-    Email email = null;
-    for (int i = 0; i < 1000000; i++) {
-        email = new Email("a", "aa");
-        System.out.println(email);
+        Thread thread1 = new Thread(() -> {
+            for (int i = 0; i < 1000000; i++) {
+                Email email = new Email("b", "bb");
+                System.out.println(email);
+            }
+        });
+
+        Thread thread2 = new Thread(() -> {
+            for (int i = 0; i < 1000000; i++) {
+                Task task = new Task("b", "bb");
+                System.out.println(task);
+            }
+        });
+
+        thread1.start();
+        thread2.start();
     }
-    Task task = null;
-    for (int i = 0; i < 1000000; i++) {
-        task = new Task("b", "bb");
-        System.out.println(task);
-    }
-}
+
+
+//public static void main(String[] args) throws InterruptedException {
+//
+//    Email email = null;
+//    for (int i = 0; i < 1000000; i++) {
+//        email = new Email("a", "aa");
+//        System.out.println(email);
+//    }
+//    Task task = null;
+//    for (int i = 0; i < 1000000; i++) {
+//        task = new Task("b", "bb");
+//        System.out.println(task);
+//    }
+//}
 
     public static void foo() {
 
