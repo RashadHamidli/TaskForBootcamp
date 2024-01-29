@@ -1,36 +1,45 @@
 package com.company;
 
-import java.util.concurrent.ForkJoinPool;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class MyParallelProgram {
-    public static void main(String[] args) {
-        ForkJoinPool forkJoinPool = new ForkJoinPool();
+    private Integer a = new Integer(0);
+    private static AtomicInteger b = new AtomicInteger(0);
 
-        // İlk görevi Fork-Join Pool'a gönder
-        forkJoinPool.submit(() -> {
+    public static void main(String[] args) throws InterruptedException {
+//        Thread thread = new Thread(() -> {
+//            for (int i = 0; i < 1000000; i++) {
+//                b.incrementAndGet();
+//                System.out.println(i + ". new thread running");
+//            }
+//        });
+//        thread.setDaemon(true);
+//        thread.start();
+
+        Thread thread2 = new Thread(() -> {
+            MyParallelProgram myParallelProgram = new MyParallelProgram();
+            int a=0;
             for (int i = 0; i < 1000000; i++) {
-                Email email = new Email("b", "bb");
-                    System.out.println(email);
+                myParallelProgram.setA(++a);
             }
+            Integer a1 = myParallelProgram.getA();
+            System.out.println(a1);
         });
+        thread2.setDaemon(true);
+        thread2.start();
 
-        // İkinci görevi Fork-Join Pool'a gönder
-        forkJoinPool.submit(() -> {
-            for (int i = 0; i < 1000000; i++) {
-                Task task = new Task("b", "bb");
-                    System.out.println(task);
-            }
-        });
+        Thread.sleep(3000);
+        Thread thread1 = new Thread(() -> System.out.println("atomic integer b="));
+        thread1.start();
 
-        // Fork-Join Pool'u kapat
-        forkJoinPool.shutdown();
-        try {
-            // Tüm görevlerin tamamlanmasını bekleyin
-            forkJoinPool.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    }
+
+    public synchronized Integer getA() {
+        return a;
+    }
+
+    public synchronized void setA(Integer a) {
+        this.a = a;
     }
 
 }
