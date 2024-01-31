@@ -1,45 +1,74 @@
 package com.company;
 
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.Callable;
+import java.util.concurrent.FutureTask;
 
 public class MyParallelProgram {
-    private Integer a = new Integer(0);
-    private static AtomicInteger b = new AtomicInteger(0);
+
+    private static final Object resource1 = new Object();
+    private static final Object resource2 = new Object();
 
     public static void main(String[] args) throws InterruptedException {
-//        Thread thread = new Thread(() -> {
-//            for (int i = 0; i < 1000000; i++) {
-//                b.incrementAndGet();
-//                System.out.println(i + ". new thread running");
+
+        Callable<String> callable = new Callable<String>() {
+            @Override
+            public String call() {
+                return "call method";
+            }
+        };
+
+        FutureTask<String> futureTask = new FutureTask<>(callable);
+        Thread thread = new Thread(new FutureTask<>(callable));
+        thread.start();
+
+        // Nəticəni almaq üçün futureTask obyektindən istifadə edə bilərsiniz
+        try {
+            String result = futureTask.get();
+            System.out.println("Thread returned: " + result);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        //        Thread thread1 = new Thread(() -> {
+//            synchronized (resource1) {
+//                System.out.println("Thread 1 locked resource 1");
+//                try {
+//                    Thread.sleep(100);
+//                    if(Thread.holdsLock(resource1)){
+//                    resource1.wait();
+//                    }
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//                System.out.println("Thread 1 waiting for resource 2");
+//                synchronized (resource2) {
+//                    System.out.println("Thread 1 locked resource 2");
+//                }
+//                return ;
 //            }
 //        });
-//        thread.setDaemon(true);
-//        thread.start();
+//
+//        Thread thread2 = new Thread(() -> {
+//            synchronized (resource2) {
+//                System.out.println("Thread 2 locked resource 2");
+//                try {
+//                    Thread.sleep(100);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//                System.out.println("Thread 2 waiting for resource 1");
+//                synchronized (resource1) {
+//                    resource1.notify();
+//                    System.out.println("Thread 2 locked resource 1");
+//                }
+//            }
+//        });
+//
+//        thread1.start();
+//        thread2.start();
+//        System.out.println("kod bitdi");
 
-        Thread thread2 = new Thread(() -> {
-            MyParallelProgram myParallelProgram = new MyParallelProgram();
-            int a=0;
-            for (int i = 0; i < 1000000; i++) {
-                myParallelProgram.setA(++a);
-            }
-            Integer a1 = myParallelProgram.getA();
-            System.out.println(a1);
-        });
-        thread2.setDaemon(true);
-        thread2.start();
-
-        Thread.sleep(3000);
-        Thread thread1 = new Thread(() -> System.out.println("atomic integer b="));
-        thread1.start();
-
-    }
-
-    public synchronized Integer getA() {
-        return a;
-    }
-
-    public synchronized void setA(Integer a) {
-        this.a = a;
     }
 
 }
