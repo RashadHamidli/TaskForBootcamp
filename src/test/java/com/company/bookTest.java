@@ -4,6 +4,7 @@ import com.company.entity.Book;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
@@ -14,7 +15,8 @@ import static org.apache.commons.lang3.RandomStringUtils.randomNumeric;
 import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 
-public class SpringBootBootstrapLiveTest {
+@SpringBootTest
+public class bookTest {
 
     private static final String API_ROOT
             = "http://localhost:8080/api/books";
