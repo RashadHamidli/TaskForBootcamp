@@ -3,10 +3,9 @@ package com.company.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
-@Entity
 @Data
+@Entity
 public class Book {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -16,4 +15,5 @@ public class Book {
 
     @Column(nullable = false)
     private String author;
+    
 }

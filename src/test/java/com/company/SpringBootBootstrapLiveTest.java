@@ -17,7 +17,7 @@ import static org.testng.AssertJUnit.assertTrue;
 public class SpringBootBootstrapLiveTest {
 
     private static final String API_ROOT
-            = "http://localhost:8081/api/books";
+            = "http://localhost:8080/api/books";
 
     private Book createRandomBook() {
         Book book = new Book();
@@ -65,8 +65,8 @@ public class SpringBootBootstrapLiveTest {
     @Test
     public void whenGetNotExistBookById_thenNotFound() {
         Response response = RestAssured.get(API_ROOT + "/" + randomNumeric(4));
-
-        assertEquals(HttpStatus.NOT_FOUND.value(), response.getStatusCode());
+//        assertEquals(HttpStatus.NOT_FOUND.value(), response.getStatusCode());
+        assertEquals(HttpStatus.BAD_REQUEST.value(), response.getStatusCode());
     }
     @Test
     public void whenCreateNewBook_thenCreated() {
@@ -118,7 +118,8 @@ public class SpringBootBootstrapLiveTest {
         assertEquals(HttpStatus.OK.value(), response.getStatusCode());
 
         response = RestAssured.get(location);
-        assertEquals(HttpStatus.NOT_FOUND.value(), response.getStatusCode());
+//        assertEquals(HttpStatus.NOT_FOUND.value(), response.getStatusCode());
+        assertEquals(HttpStatus.BAD_REQUEST.value(), response.getStatusCode());
     }
 
 

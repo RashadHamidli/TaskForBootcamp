@@ -1,9 +1,7 @@
 package com.company.controller;
 
 import com.company.entity.Book;
-import com.company.exception.BookNotFoundException;
-import com.company.repository.BookRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.company.services.BookService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,46 +11,41 @@ import java.util.List;
 @RequestMapping("/api/books")
 public class BookController {
 
-    @Autowired
-    private BookRepository bookRepository;
+    private final BookService bookService;
+
+    public BookController(BookService bookService) {
+        this.bookService = bookService;
+    }
 
     @GetMapping
     public Iterable findAll() {
-        return bookRepository.findAll();
+        return bookService.findAll();
     }
 
     @GetMapping("/title/{bookTitle}")
     public List findByTitle(@PathVariable String bookTitle) {
-        return bookRepository.findByTitle(bookTitle);
+        return bookService.findByTitle(bookTitle);
     }
 
     @GetMapping("/{id}")
     public Book findOne(@PathVariable Long id) {
-        return bookRepository.findById(id)
-                .orElseThrow(RuntimeException::new);
+        return bookService.findOne(id);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Book create(@RequestBody Book book) {
-        return bookRepository.save(book);
+        return bookService.create(book);
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
-        bookRepository.findById(id)
-                .orElseThrow(RuntimeException::new);
-        bookRepository.deleteById(id);
+        bookService.delete(id);
     }
 
     @PutMapping("/{id}")
     public Book updateBook(@RequestBody Book book, @PathVariable Long id) {
-        if (book.getId() != id) {
-            throw new RuntimeException();
-        }
-        bookRepository.findById(id)
-                .orElseThrow(RuntimeException::new);
-        return bookRepository.save(book);
+        return bookService.updateBook(book,id);
     }
 }
 
