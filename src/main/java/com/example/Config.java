@@ -17,4 +17,15 @@ public class Config {
     public MyService prodService() {
         return new ProductionService();
     }
+    @Bean
+    @Profile("test")
+    public MyService testService(){
+        return new MyService() {
+            @Override
+            public String getInfo() {
+                return "this service is \"Test Service\"";
+            }
+        };
+    }
+
 }
