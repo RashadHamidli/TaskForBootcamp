@@ -10,13 +10,15 @@ public class MyCommandLineRunner implements CommandLineRunner {
 
     private final MyService myService;
 
-    public MyCommandLineRunner(@Qualifier("test") MyService myService) {
+
+    public MyCommandLineRunner(@Qualifier("prod1") MyService myService) {
         this.myService = myService;
     }
 
     @Override
     public void run(String... args) throws Exception {
         System.out.println(myService.getInfo());
+
     }
 
 }
