@@ -6,20 +6,29 @@ import org.springframework.context.annotation.Profile;
 
 @Configuration
 public class Config {
-    @Bean
-    @Profile("dev")
-    public MyService devService() {
+    @Bean("dev1")
+    public MyService devService1() {
         return new DevelopmentService();
     }
 
-    @Bean
-    @Profile("prod")
-    public MyService prodService() {
+    @Bean("dev2")
+    public MyService devService2() {
+        return new DevelopmentService();
+    }
+
+    @Bean("prod1")
+    public MyService prodService1() {
         return new ProductionService();
     }
-    @Bean
-    @Profile("test")
-    public MyService testService(){
+
+    @Bean("prod2")
+    public MyService prodService2() {
+        return new ProductionService();
+    }
+
+    //    @Profile("test")
+    @Bean("test")
+    public MyService testService() {
         return new MyService() {
             @Override
             public String getInfo() {
@@ -27,5 +36,6 @@ public class Config {
             }
         };
     }
+
 
 }
