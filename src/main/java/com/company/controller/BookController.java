@@ -1,8 +1,10 @@
 package com.company.controller;
 
 import com.company.entity.Book;
+import com.company.entity.User;
 import com.company.services.BookService;
 import org.springframework.http.HttpStatus;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +21,11 @@ public class BookController {
 
     @GetMapping
     public Iterable findAll() {
+        return bookService.findAll();
+    }
+    @GetMapping("/{id}")
+    @ModelAttribute
+    public Iterable findAny(@ModelAttribute Book book, User user, @PathVariable Long id) {
         return bookService.findAll();
     }
 
