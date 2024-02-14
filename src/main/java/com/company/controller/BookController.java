@@ -23,11 +23,6 @@ public class BookController {
     public Iterable findAll() {
         return bookService.findAll();
     }
-    @GetMapping("/{id}")
-    @ModelAttribute
-    public Iterable findAny(@ModelAttribute Book book, User user, @PathVariable Long id) {
-        return bookService.findAll();
-    }
 
     @GetMapping("/title/{bookTitle}")
     public List findByTitle(@PathVariable String bookTitle) {
@@ -52,7 +47,7 @@ public class BookController {
 
     @PutMapping("/{id}")
     public Book updateBook(@RequestBody Book book, @PathVariable Long id) {
-        return bookService.updateBook(book,id);
+        return bookService.updateBook(book, id);
     }
 }
 
