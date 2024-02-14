@@ -2,7 +2,9 @@ package com.company.controller;
 
 import com.company.entity.User;
 import com.company.services.UserService;
-import org.springframework.stereotype.Controller;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,8 +29,9 @@ public class UserController {
     }
 
     @PostMapping("/create")
-    public User createUser(@RequestBody User user) {
-        return userService.createUser(user);
+    public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
+        userService.createUser(user);
+        return ResponseEntity.ok(user);
     }
 
     @DeleteMapping("/{id}")
