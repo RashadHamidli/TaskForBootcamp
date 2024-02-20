@@ -9,6 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.http.ResponseEntity;
 
+import java.util.List;
+
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
 public class Launcher implements CommandLineRunner {
 
@@ -25,11 +27,10 @@ public class Launcher implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-//        User user=new User();
-//        user.setAge(25);
-//        user.setName("John");
-//        user.setSurname("Brown");
-//        ResponseEntity<User> userPrint = userController.createUser(user);
-//        System.out.println(userPrint);
+        List<User> first5ByAge = userController.findFirst5ByAge(25);
+        first5ByAge.stream().forEach(System.out::println);
+
+        List<User> top5ByAge = userController.findFirst5ByAge(25);
+        top5ByAge.stream().forEach(System.out::println);
     }
 }

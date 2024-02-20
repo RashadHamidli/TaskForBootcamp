@@ -2,6 +2,7 @@ package com.company.controller;
 
 import com.company.entity.User;
 import com.company.services.UserService;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -18,14 +19,18 @@ public class UserController {
         this.userService = userService;
     }
 
-//    @GetMapping
-//    public List<User> findTop5ByAge(Integer age) {
-//        return userService.findTop5ByAge(age);
-//    }
-
     @GetMapping
     public List<User> getAllUser() {
         return userService.getAll();
+    }
+
+    @GetMapping("/{age}")
+    public List<User> findTop5ByAge(@PathVariable Integer age) {
+        return userService.findTop5ByAge(age);
+    }
+    @GetMapping("/{agef}")
+    public List<User> findFirst5ByAge(@PathVariable(name = "agef") Integer age){
+        return userService.findFirst5ByAge(age);
     }
 
     @GetMapping("/{id}")

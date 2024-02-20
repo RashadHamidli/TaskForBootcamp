@@ -21,4 +21,8 @@ public class User {
     @NotNull(message = "age cannot be null")
     private Integer age;
 
+    @Override
+    public String toString() {
+        return String.format("%d) %s, %s, %d", id, name, surname, age);
+    }
 }

@@ -19,7 +19,8 @@ public class UserService {
     public List<User> getAll() {
         return userRepository.findAll(Sort.by("name"));
     }
-    public List<User> findTop5ByAge(Integer age){
+
+    public List<User> findTop5ByAge(Integer age) {
         return userRepository.findTop5ByAge(age);
     }
 
@@ -34,5 +35,13 @@ public class UserService {
 
     public void deleteUser(long id) {
         userRepository.deleteById(id);
+    }
+
+    public List<User> findFirst5ByAge(Integer age) {
+        return userRepository.findFirst5ByAge(age);
+    }
+
+    public User findByNameSorted(String name) {
+        return userRepository.findByName(Sort.by("name"), name);
     }
 }
