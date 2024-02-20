@@ -3,6 +3,7 @@ package com.company.services;
 import com.company.entity.User;
 import com.company.repository.UserRepository;
 import jakarta.transaction.Transactional;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +17,10 @@ public class UserService {
     }
 
     public List<User> getAll() {
-        return userRepository.findAll();
+        return userRepository.findAll(Sort.by("name"));
+    }
+    public List<User> findTop5ByAge(Integer age){
+        return userRepository.findTop5ByAge(age);
     }
 
     public User findById(long id) {
