@@ -1,5 +1,6 @@
 package com.company.controller;
 
+import com.company.dto.UserDTO;
 import com.company.entity.User;
 import com.company.services.UserService;
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -47,5 +48,10 @@ public class UserController {
     @DeleteMapping("/{id}")
     private void deleteUser(@PathVariable long id) {
         userService.deleteUser(id);
+    }
+
+    public User getUser(User user){
+        UserDTO u = userService.getUser(user);
+        return userService.getUserDTO(u);
     }
 }
