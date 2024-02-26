@@ -25,7 +25,7 @@ public class UserService {
         return userRepository.findTop5ByAge(age);
     }
 
-    public User findById(long id) {
+    public User findById(Long id) {
         return userRepository.findById(id).orElseThrow();
     }
 

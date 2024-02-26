@@ -3,6 +3,12 @@ package com.company.controller;
 import com.company.dto.UserDTO;
 import com.company.entity.User;
 import com.company.services.UserService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatusCode;
@@ -25,15 +31,6 @@ public class UserController {
         return userService.getAll();
     }
 
-    @GetMapping("/{age}")
-    public List<User> findTop5ByAge(@PathVariable Integer age) {
-        return userService.findTop5ByAge(age);
-    }
-    @GetMapping("/{agef}")
-    public List<User> findFirst5ByAge(@PathVariable(name = "agef") Integer age){
-        return userService.findFirst5ByAge(age);
-    }
-
     @GetMapping("/{id}")
     public User getOneUser(@PathVariable long id) {
         return userService.findById(id);
@@ -50,7 +47,7 @@ public class UserController {
         userService.deleteUser(id);
     }
 
-    public User getUser(User user){
+    public User getUser(User user) {
         UserDTO u = userService.getUser(user);
         return userService.getUserDTO(u);
     }
