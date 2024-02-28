@@ -9,6 +9,7 @@ import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -18,30 +19,30 @@ public class UserRestController {
 
     @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
-    private List<User> getAllUser() {
+    public List<User> getAllUser() {
         return userService.getAllUser();
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    private User getUserById(@PathVariable Long id) {
+    public User getUserById(@PathVariable Long id) {
         return userService.getUserById(id);
     }
 
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    private User createUser(@Valid @RequestBody User user) {
+    public User createUser(@Valid @RequestBody User user) {
         return userService.createUser(user);
     }
 
     @PutMapping("/{id}")
-    private User updateUser(@PathVariable Long id, @RequestBody User user) {
+    public User updateUser(@PathVariable Long id, @RequestBody User user) {
         return userService.updateUser(id, user);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    private void deleteUser(@PathVariable Long id) {
+    public void deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
     }
 }
