@@ -5,6 +5,7 @@ import com.company.services.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,19 +21,27 @@ public class UserRestController {
     private List<User> getAllUser() {
         return userService.getAllUser();
     }
+
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    private User getUserById(@PathVariable Long id){
+    private User getUserById(@PathVariable Long id) {
         return userService.getUserById(id);
     }
+
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    private User createUser(@Valid @RequestBody User user){
+    private User createUser(@Valid @RequestBody User user) {
         return userService.createUser(user);
     }
+
     @PutMapping("/{id}")
-    private User updateUser(@PathVariable Long id, @RequestBody User user){
-        return userService.updateUser(id,user);
+    private User updateUser(@PathVariable Long id, @RequestBody User user) {
+        return userService.updateUser(id, user);
     }
 
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    private void deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
+    }
 }

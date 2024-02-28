@@ -14,13 +14,14 @@ import java.util.List;
 public class UserService {
     private final UserRepository userRepository;
 
+    @Transactional
     public List<User> getAllUser() {
         return userRepository.findAll();
     }
 
     @Transactional(Transactional.TxType.SUPPORTS)
     public User getUserById(Long id) {
-        return userRepository.findById(id).orElseThrow();
+        return userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("User not found with id: " + id));
     }
 
     @Transactional
@@ -31,7 +32,12 @@ public class UserService {
     @Transactional
     public User updateUser(Long id, User user) {
         User foundUser = getUserById(id);
-        User userUpdate = UserRequest.updateUser(user, foundUser);
-        return userRepository.save(userUpdate);
+        return UserRequest.updateUser(user, foundUser);
+    }
+
+    @Transactional
+    public void deleteUser(Long id) {
+        User foundUser = getUserById(id);
+        userRepository.delete(foundUser);
     }
 }
