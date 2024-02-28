@@ -1,5 +1,6 @@
 package com.company.services;
 
+import com.company.dto.UserRequest;
 import com.company.entities.User;
 import com.company.repository.UserRepository;
 import jakarta.transaction.Transactional;
@@ -30,7 +31,7 @@ public class UserService {
     @Transactional
     public User updateUser(Long id, User user) {
         User foundUser = getUserById(id);
-
-        return userRepository.save(user);
+        User userUpdate = UserRequest.updateUser(user, foundUser);
+        return userRepository.save(userUpdate);
     }
 }
