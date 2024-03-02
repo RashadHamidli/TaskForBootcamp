@@ -7,6 +7,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -28,9 +29,10 @@ public class SecurityConfig {
                 .cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/api/login").permitAll()
-                        .requestMatchers("/api/book/**").hasRole("ADMIN")
-                        .anyRequest().authenticated()
+//                        .requestMatchers("/login").permitAll()
+                                .requestMatchers("/api/book/**").hasRole("ADMIN")
+                                .requestMatchers("/*").anonymous()
+                                .anyRequest().authenticated()
                 )
                 .formLogin(Customizer.withDefaults())
                 .formLogin(login -> {
@@ -43,7 +45,7 @@ public class SecurityConfig {
                     key.tokenValiditySeconds(604800);
                 })
                 .logout(logout -> {
-                    logout.logoutUrl("/api/logout");
+                    logout.logoutUrl("/logout");
                     logout.logoutSuccessUrl("/login");
                     logout.invalidateHttpSession(true);
                     logout.deleteCookies("JSESSIONID");
