@@ -29,10 +29,9 @@ public class SecurityConfig {
                 .cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
-//                        .requestMatchers("/login").permitAll()
-                                .requestMatchers("/api/book/**").hasRole("ADMIN")
-                                .requestMatchers("/*").anonymous()
-                                .anyRequest().authenticated()
+                        .requestMatchers("/login").permitAll()
+                        .requestMatchers("/api/book/**").hasRole("ADMIN")
+                        .anyRequest().authenticated()
                 )
                 .formLogin(Customizer.withDefaults())
                 .formLogin(login -> {
@@ -54,7 +53,8 @@ public class SecurityConfig {
                         .sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
                         .invalidSessionUrl("/invalidSession")
                         .sessionFixation().migrateSession()
-                        .maximumSessions(1));
+                        .maximumSessions(1))
+                .passwordManagement(Customizer.withDefaults());
         return http.build();
     }
 
