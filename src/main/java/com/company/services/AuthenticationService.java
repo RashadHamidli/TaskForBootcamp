@@ -11,6 +11,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,10 +20,12 @@ public class AuthenticationService {
     private final UserRepository userRepository;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
+    private final PasswordEncoder passwordEncoder;
 
     @Transactional
     public LoginResponse save(UserRequest userRequest) {
         User user = UserRequest.converteUser(userRequest);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRoles(Roles.USER);
         userRepository.save(user);
         String token = jwtService.generateToken(user);
