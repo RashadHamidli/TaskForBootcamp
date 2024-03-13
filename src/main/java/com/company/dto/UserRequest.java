@@ -2,7 +2,6 @@ package com.company.dto;
 
 import com.company.entities.User;
 
-import java.text.DateFormat;
 import java.time.LocalDate;
 import java.util.Optional;
 
