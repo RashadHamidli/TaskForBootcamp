@@ -24,14 +24,9 @@ public class AuthenticationController {
         return ResponseEntity.ok(authenticationService.save(userRequest));
     }
 
-    //    @PostMapping("/login")
-//    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest){
-//        return ResponseEntity.ok(authenticationService.login(loginRequest));
-//    }
     @PostMapping("/login")
-    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
-        ResponseEntity<LoginResponse> response = ResponseEntity.ok(authenticationService.login(loginRequest));
-        SecurityContextHolder.getContext();
-        return response;
+    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest){
+        return ResponseEntity.ok(authenticationService.login(loginRequest));
     }
+
 }
