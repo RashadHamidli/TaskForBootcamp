@@ -1,10 +1,11 @@
 package com.company.dto;
 
 import com.company.entities.User;
+import lombok.Data;
 
 import java.time.LocalDate;
 import java.util.Optional;
-
+@Data
 public class UserRequest {
     private String firstName;
     private String lastName;
@@ -33,6 +34,8 @@ public class UserRequest {
         user.setPassword(userRequest.password);
         user.setAge(userRequest.age);
         user.setBirthDate(userRequest.birthdate);
+        System.out.println(user);
+        System.out.println(userRequest);
         return user;
     }
 }

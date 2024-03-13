@@ -25,12 +25,13 @@ public class SecurityConfig {
                 .cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/login").permitAll()
+                        .requestMatchers("/login", "/auth/**").permitAll()
                         .requestMatchers("/api/book/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
-                .formLogin(Customizer.withDefaults())
+//                .formLogin(Customizer.withDefaults())
                 .formLogin(login -> {
+                    login.loginPage("/login");
                     login.loginProcessingUrl("/perform_login");
                     login.defaultSuccessUrl("/api/user/all", true);
                     login.failureUrl("/login.html?error=true");

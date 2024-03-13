@@ -17,8 +17,7 @@ public class JwtService {
     private String SECRET_KEY;
     @Value("${spring.jwt.issuer}")
     private String ISSUER;
-    @Value("${spring.jwt.expires}")
-    private String EXPIRES;
+    private final Long EXPIRES=60*60*1000L;
 
     public String findUsername(String token){
         return decodedToken(token).getSubject();

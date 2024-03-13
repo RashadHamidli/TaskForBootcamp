@@ -1,10 +1,12 @@
-package com.company.security;
+package com.company.services;
 
 import com.company.dto.LoginRequest;
 import com.company.dto.LoginResponse;
 import com.company.dto.UserRequest;
+import com.company.entities.Roles;
 import com.company.entities.User;
 import com.company.repository.UserRepository;
+import com.company.security.JwtService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,6 +23,7 @@ public class AuthenticationService {
     @Transactional
     public LoginResponse save(UserRequest userRequest) {
         User user = UserRequest.converteUser(userRequest);
+        user.setRoles(Roles.USER);
         userRepository.save(user);
         String token = jwtService.generateToken(user);
         return new LoginResponse(token);
