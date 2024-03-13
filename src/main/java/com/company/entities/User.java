@@ -31,4 +31,6 @@ public class User {
     private Integer age;
     @NotNull
     private LocalDate birthDate;
+    @Enumerated
+    private Roles roles;
 }
