@@ -1,8 +1,8 @@
 package com.company.services;
 
-import com.company.dto.LoginRequest;
-import com.company.dto.LoginResponse;
-import com.company.dto.UserRequest;
+import com.company.dto.request.LoginRequest;
+import com.company.dto.responce.LoginResponse;
+import com.company.dto.request.UserRequest;
 import com.company.entities.Roles;
 import com.company.entities.User;
 import com.company.repository.UserRepository;
@@ -35,10 +35,10 @@ public class AuthenticationService {
     }
 
     public LoginResponse login(LoginRequest loginRequest) {
-        Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.email(), loginRequest.password()));
+        Authentication authenticate = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(loginRequest.email(), loginRequest.password()));
         User user = userRepository.findByEmail(loginRequest.email()).orElseThrow();
         SecurityContextHolder.getContext().setAuthentication(authenticate);
-        System.out.println(authenticate);
         String token = jwtService.generateToken(user);
         return new LoginResponse(token);
     }

@@ -27,15 +27,12 @@ public class UserRestController {
     @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
     public List<User> getAllUser() {
-        SecurityContext context = SecurityContextHolder.getContext();
-        Authentication authentication = context.getAuthentication();
-        Object principal = authentication.getPrincipal();
-        Object credentials = authentication.getCredentials();
-        Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-        System.out.println("principal: " + principal + "\ncredentials: " + credentials + "\nauthorities: " + authorities);
-
-
-
+//        SecurityContext context = SecurityContextHolder.getContext();
+//        Authentication authentication = context.getAuthentication();
+//        Object principal = authentication.getPrincipal();
+//        Object credentials = authentication.getCredentials();
+//        Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+//        System.out.println("principal: " + principal + "\ncredentials: " + credentials + "\nauthorities: " + authorities);
         return userService.getAllUser();
     }
 

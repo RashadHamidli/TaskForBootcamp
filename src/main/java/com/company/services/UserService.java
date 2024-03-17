@@ -1,6 +1,6 @@
 package com.company.services;
 
-import com.company.dto.UserRequest;
+import com.company.dto.request.UserRequest;
 import com.company.entities.User;
 import com.company.repository.UserRepository;
 import jakarta.transaction.Transactional;
@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor

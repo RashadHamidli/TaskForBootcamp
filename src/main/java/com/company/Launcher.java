@@ -13,11 +13,11 @@ public class Launcher {
         SpringApplication.run(Launcher.class, args);
     }
 
-    @Bean
-    public CommandLineRunner runner(BookRestController bookRestController) {
-        return args -> {
-
-        };
-    }
+//    @Bean
+//    public CommandLineRunner runner( ) {
+//        return args -> {
+//
+//        };
+//    }
 
 }
