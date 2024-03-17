@@ -9,7 +9,6 @@ import java.time.LocalDate;
 public class UserResponse {
     private Long id;
     private String firstname, lastname, email;
-    private Integer age;
     private LocalDate birthdate;
 
 
@@ -19,7 +18,6 @@ public class UserResponse {
         userResponse.setFirstname(user.getFirstName());
         userResponse.setLastname(user.getLastName());
         userResponse.setEmail(user.getEmail());
-        userResponse.setAge(user.getAge());
         userResponse.setBirthdate(user.getBirthDate());
         return userResponse;
     }

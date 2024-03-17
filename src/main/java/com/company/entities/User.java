@@ -32,9 +32,6 @@ public class User implements UserDetails {
             message = "Password must contain at least 1 uppercase letter, 1 lowercase letter, and 1 digit, with a minimum length of 8 characters")
     private String password;
     @NotNull
-    @Min(value = 18, message = "required minimum age 18")
-    private Integer age;
-    @NotNull
     private LocalDate birthDate;
     @Enumerated(EnumType.STRING)
     private Roles roles;

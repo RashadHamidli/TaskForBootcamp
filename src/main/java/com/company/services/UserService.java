@@ -35,11 +35,13 @@ public class UserService {
         return UserResponse.convertUserToUserResponse(saveUser);
     }
 
+    @Transactional
     public UserResponse updateUser(Long id, UserRequest userRequest) {
         User user = UserRequest.converteUser(userRequest);
         User userFound = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("user not found"));
         User updatedUser = UserRequest.updateUser(user, userFound);
-        return UserResponse.convertUserToUserResponse(updatedUser);
+        User savedUser = userRepository.save(updatedUser);
+        return UserResponse.convertUserToUserResponse(savedUser);
     }
 
     @Transactional

@@ -29,12 +29,12 @@ public class UserRestController {
     @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
     public List<UserResponse> getAllUser() {
-//        SecurityContext context = SecurityContextHolder.getContext();
-//        Authentication authentication = context.getAuthentication();
-//        Object principal = authentication.getPrincipal();
-//        Object credentials = authentication.getCredentials();
-//        Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-//        System.out.println("principal: " + principal + "\ncredentials: " + credentials + "\nauthorities: " + authorities);
+        SecurityContext context = SecurityContextHolder.getContext();
+        Authentication authentication = context.getAuthentication();
+        Object principal = authentication.getPrincipal();
+        Object credentials = authentication.getCredentials();
+        Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+        System.out.println("principal: " + principal + "\ncredentials: " + credentials + "\nauthorities: " + authorities);
         return userService.getAllUser();
     }
 
@@ -50,11 +50,10 @@ public class UserRestController {
         return userService.createUser(user);
     }
 
-    @PutMapping("/{id}")
+    @PostMapping("/{id}")
     public UserResponse updateUser(@PathVariable Long id, @RequestBody UserRequest user) {
         return userService.updateUser(id, user);
     }
-
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

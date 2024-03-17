@@ -11,7 +11,6 @@ public class UserRequest {
     private String lastName;
     private String email;
     private String password;
-    private int age;
     private LocalDate birthdate;
 
 
@@ -20,7 +19,6 @@ public class UserRequest {
         Optional.ofNullable(user.getLastName()).ifPresent(foundUser::setLastName);
         Optional.ofNullable(user.getEmail()).ifPresent(foundUser::setEmail);
         Optional.ofNullable(user.getPassword()).ifPresent(foundUser::setPassword);
-        Optional.ofNullable(user.getAge()).ifPresent(foundUser::setAge);
         Optional.ofNullable(user.getBirthDate()).ifPresent(foundUser::setBirthDate);
         System.out.println(foundUser);
         return foundUser;
@@ -32,7 +30,6 @@ public class UserRequest {
         user.setLastName(userRequest.lastName);
         user.setEmail(userRequest.email);
         user.setPassword(userRequest.password);
-        user.setAge(userRequest.age);
         user.setBirthDate(userRequest.birthdate);
         System.out.println(user);
         System.out.println(userRequest);
