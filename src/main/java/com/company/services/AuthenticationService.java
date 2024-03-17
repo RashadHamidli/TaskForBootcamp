@@ -25,7 +25,7 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
 
     @Transactional
-    public LoginResponse save(UserRequest userRequest) {
+    public LoginResponse registerUser(UserRequest userRequest) {
         User user = UserRequest.converteUser(userRequest);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRoles(Roles.USER);

@@ -25,8 +25,8 @@ public class SecurityConfig {
                 .cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/login", "/auth/**", "/**").permitAll()
-//                        .anyRequest().authenticated()
+                        .requestMatchers("/login", "/auth/**").permitAll()
+                        .anyRequest().authenticated()
                 )
                 .formLogin(login -> {
                     login.loginPage("/login");

@@ -6,8 +6,6 @@ import com.company.dto.UserRequest;
 import com.company.services.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +19,7 @@ public class AuthenticationController {
 
     @PostMapping("/create")
     public ResponseEntity<LoginResponse> createUser(@RequestBody UserRequest userRequest) {
-        return ResponseEntity.ok(authenticationService.save(userRequest));
+        return ResponseEntity.ok(authenticationService.registerUser(userRequest));
     }
 
     @PostMapping("/login")
