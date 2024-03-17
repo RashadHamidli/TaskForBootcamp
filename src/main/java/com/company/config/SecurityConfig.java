@@ -25,11 +25,9 @@ public class SecurityConfig {
                 .cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/login", "/auth/**").permitAll()
-                        .requestMatchers("/api/book/**").hasRole("ADMIN")
-                        .anyRequest().authenticated()
+                        .requestMatchers("/login", "/auth/**", "/**").permitAll()
+//                        .anyRequest().authenticated()
                 )
-//                .formLogin(Customizer.withDefaults())
                 .formLogin(login -> {
                     login.loginPage("/login");
                     login.loginProcessingUrl("/perform_login");
@@ -55,8 +53,6 @@ public class SecurityConfig {
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
-
-
 
 
 }

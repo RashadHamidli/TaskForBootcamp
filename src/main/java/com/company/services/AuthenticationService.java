@@ -13,8 +13,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +23,6 @@ public class AuthenticationService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
     private final PasswordEncoder passwordEncoder;
-    private final UserDetailsService userDetailsService;
 
     @Transactional
     public LoginResponse save(UserRequest userRequest) {
@@ -46,24 +43,4 @@ public class AuthenticationService {
         return new LoginResponse(token);
     }
 
-//    public String getLoggedInUserId() {
-//        // Güvenlik bağlamını al
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//
-//        // Kimlik doğrulaması yapıldıysa ve kimlik geçerliyse
-//        if (authentication != null && authentication.isAuthenticated()) {
-//            // Kullanıcı bilgilerini al
-//            Object principal = authentication.getPrincipal();
-//
-//            // Eğer kullanıcı bilgileri bir UserDetails nesnesiyse
-//            if (principal instanceof UserDetails) {
-//                // Kullanıcı kimliğini UserDetails nesnesinden al
-//                UserDetails userDetails = (UserDetails) principal;
-//                return userDetails.getUsername(); // Kullanıcı kimliğini döndür
-//            }
-//        }
-//
-//        // Kullanıcı kimliği alınamazsa veya kimlik doğrulanamazsa null döndür
-//        return null;
-//    }
 }
