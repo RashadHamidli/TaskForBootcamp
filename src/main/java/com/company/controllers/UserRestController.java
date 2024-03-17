@@ -1,5 +1,7 @@
 package com.company.controllers;
 
+import com.company.dto.request.UserRequest;
+import com.company.dto.responce.UserResponse;
 import com.company.entities.User;
 import com.company.services.UserService;
 import jakarta.validation.Valid;
@@ -26,7 +28,7 @@ public class UserRestController {
 
     @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
-    public List<User> getAllUser() {
+    public List<UserResponse> getAllUser() {
 //        SecurityContext context = SecurityContextHolder.getContext();
 //        Authentication authentication = context.getAuthentication();
 //        Object principal = authentication.getPrincipal();
@@ -38,20 +40,21 @@ public class UserRestController {
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public User getUserById(@PathVariable Long id) {
+    public UserResponse getUserById(@PathVariable Long id) {
         return userService.getUserById(id);
     }
 
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    public User createUser(@Valid @RequestBody User user) {
+    public UserResponse createUser(@Valid @RequestBody User user) {
         return userService.createUser(user);
     }
 
     @PutMapping("/{id}")
-    public User updateUser(@PathVariable Long id, @RequestBody User user) {
+    public UserResponse updateUser(@PathVariable Long id, @RequestBody UserRequest user) {
         return userService.updateUser(id, user);
     }
+
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

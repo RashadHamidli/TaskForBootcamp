@@ -1,13 +1,16 @@
 package com.company.services;
 
 import com.company.dto.request.UserRequest;
+import com.company.dto.responce.UserResponse;
 import com.company.entities.User;
 import com.company.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -15,29 +18,33 @@ public class UserService {
     private final UserRepository userRepository;
 
     @Transactional
-    public List<User> getAllUser() {
-        return userRepository.findAll();
+    public List<UserResponse> getAllUser() {
+        List<User> user = userRepository.findAll();
+        return user.stream().map(UserResponse::convertUserToUserResponse).collect(Collectors.toList());
     }
 
     @Transactional(Transactional.TxType.SUPPORTS)
-    public User getUserById(Long id) {
-        return userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("User not found with id: " + id));
+    public UserResponse getUserById(Long id) {
+        User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("User not found with id: " + id));
+        return UserResponse.convertUserToUserResponse(user);
     }
 
     @Transactional
-    public User createUser(User user) {
-        return userRepository.save(user);
+    public UserResponse createUser(User user) {
+        User saveUser = userRepository.save(user);
+        return UserResponse.convertUserToUserResponse(saveUser);
     }
 
-    @Transactional
-    public User updateUser(Long id, User user) {
-        User foundUser = getUserById(id);
-        return UserRequest.updateUser(user, foundUser);
+    public UserResponse updateUser(Long id, UserRequest userRequest) {
+        User user = UserRequest.converteUser(userRequest);
+        User userFound = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("user not found"));
+        User updatedUser = UserRequest.updateUser(user, userFound);
+        return UserResponse.convertUserToUserResponse(updatedUser);
     }
 
     @Transactional
     public void deleteUser(Long id) {
-        User foundUser = getUserById(id);
-        userRepository.delete(foundUser);
+        User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("user not found"));
+        userRepository.delete(user);
     }
 }
