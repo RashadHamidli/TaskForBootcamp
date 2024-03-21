@@ -38,7 +38,7 @@ public class TaskService {
     public TaskResponse updateTask(Long id, TaskRequest taskRequest) {
         Task task = TaskRequest.taskRequestConverteToTask(taskRequest);
         Task foundTask = taskRepository.findById(id).orElseThrow();
-        Task updateTask = TaskRequest.updateTask(foundTask, taskRequest);
+        Task updateTask = TaskRequest.updateTask(foundTask, task);
         return TaskResponse.convertTaskToTaskResponse(updateTask);
     }
 

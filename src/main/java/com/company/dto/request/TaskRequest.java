@@ -13,7 +13,7 @@ public class TaskRequest {
     private LocalDate deadline;
 
 
-    public static Task updateTask(Task task, TaskRequest taskRequest) {
+    public static Task updateTask(Task task, Task taskRequest) {
         Optional.ofNullable(task.getName()).ifPresent(taskRequest::setName);
         Optional.ofNullable(task.getText()).ifPresent(taskRequest::setText);
         Optional.ofNullable(task.getDeadline()).ifPresent(taskRequest::setDeadline);
