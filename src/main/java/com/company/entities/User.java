@@ -25,7 +25,7 @@ public class User implements UserDetails {
     private String lastName;
     @NotBlank
     @Email
-    @Column(unique = true, updatable = false)
+    @Column(unique = true)
     private String email;
     @NotBlank
     @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$",
@@ -35,7 +35,7 @@ public class User implements UserDetails {
     private LocalDate birthDate;
     @Enumerated(EnumType.STRING)
     private Roles roles;
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Task> tasks;
 
     @Override

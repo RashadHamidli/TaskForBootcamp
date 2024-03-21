@@ -5,6 +5,7 @@ import com.company.dto.responce.UserResponse;
 import com.company.entities.User;
 import com.company.repository.UserRepository;
 import jakarta.transaction.Transactional;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
 
@@ -23,14 +24,15 @@ public class UserService {
         return user.stream().map(UserResponse::convertUserToUserResponse).collect(Collectors.toList());
     }
 
-    @Transactional(Transactional.TxType.SUPPORTS)
+    @Transactional
     public UserResponse getUserById(Long id) {
         User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("User not found with id: " + id));
         return UserResponse.convertUserToUserResponse(user);
     }
 
     @Transactional
-    public UserResponse createUser(User user) {
+    public UserResponse createUser(UserRequest userRequest) {
+        User user = UserRequest.converteUser(userRequest);
         User saveUser = userRepository.save(user);
         return UserResponse.convertUserToUserResponse(saveUser);
     }
