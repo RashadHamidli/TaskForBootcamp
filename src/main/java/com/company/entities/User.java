@@ -35,6 +35,8 @@ public class User implements UserDetails {
     private LocalDate birthDate;
     @Enumerated(EnumType.STRING)
     private Roles roles;
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private List<Task> tasks;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

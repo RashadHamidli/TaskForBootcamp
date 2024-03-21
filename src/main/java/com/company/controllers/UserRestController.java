@@ -22,7 +22,7 @@ import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/user")
+@RequestMapping("/api/users")
 public class UserRestController {
     private final UserService userService;
 

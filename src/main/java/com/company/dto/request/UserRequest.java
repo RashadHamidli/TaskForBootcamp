@@ -1,10 +1,12 @@
 package com.company.dto.request;
 
 import com.company.entities.User;
+import jakarta.transaction.Transactional;
 import lombok.Data;
 
 import java.time.LocalDate;
 import java.util.Optional;
+
 @Data
 public class UserRequest {
     private String firstName;
@@ -13,14 +15,12 @@ public class UserRequest {
     private String password;
     private LocalDate birthdate;
 
-
     public static User updateUser(User user, User foundUser) {
         Optional.ofNullable(user.getFirstName()).ifPresent(foundUser::setFirstName);
         Optional.ofNullable(user.getLastName()).ifPresent(foundUser::setLastName);
         Optional.ofNullable(user.getEmail()).ifPresent(foundUser::setEmail);
         Optional.ofNullable(user.getPassword()).ifPresent(foundUser::setPassword);
         Optional.ofNullable(user.getBirthDate()).ifPresent(foundUser::setBirthDate);
-        System.out.println(foundUser);
         return foundUser;
     }
 
@@ -31,8 +31,6 @@ public class UserRequest {
         user.setEmail(userRequest.email);
         user.setPassword(userRequest.password);
         user.setBirthDate(userRequest.birthdate);
-        System.out.println(user);
-        System.out.println(userRequest);
         return user;
     }
 }

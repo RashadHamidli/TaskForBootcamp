@@ -7,13 +7,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 
-@SpringBootApplication
-@RequiredArgsConstructor
+@SpringBootApplication(exclude = SecurityAutoConfiguration.class)
 public class Launcher {
-    private final UserRestController userRestController;
-
 
     public static void main(String[] args) {
         SpringApplication.run(Launcher.class, args);
@@ -22,12 +20,6 @@ public class Launcher {
     @Bean
     public CommandLineRunner runner(UserRestController userRestController) {
         return args -> {
-            UserRequest userRequest = new UserRequest();
-            userRequest.setEmail("john_b@gmail.com");
-            UserResponse userResponse = userRestController.updateUser(3L, userRequest);
-            System.out.println(userResponse);
-            UserResponse userById = userRestController.getUserById(3L);
-            System.out.println(userById);
         };
     }
 
