@@ -25,7 +25,7 @@ public class SecurityConfig {
                 .cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/auth/**","/**").permitAll()
+                        .requestMatchers("/auth/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(login -> {
@@ -39,8 +39,8 @@ public class SecurityConfig {
                     key.tokenValiditySeconds(604800);
                 })
                 .logout(logout -> {
-                    logout.logoutUrl("/logout");
-                    logout.logoutSuccessUrl("/login");
+                    logout.logoutUrl("/auth/logout");
+//                    logout.logoutSuccessUrl("/login");
                     logout.invalidateHttpSession(true);
                     logout.deleteCookies("JSESSIONID");
                 })

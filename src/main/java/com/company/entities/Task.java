@@ -25,5 +25,6 @@ public class Task {
     private LocalDate deadline;
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @NotNull
     private User user;
 }

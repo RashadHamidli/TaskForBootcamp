@@ -1,12 +1,16 @@
 package com.company.services;
 
+import com.company.config.AuthenticationConfig;
 import com.company.dto.request.TaskRequest;
 import com.company.dto.responce.TaskResponse;
 import com.company.entities.Task;
+import com.company.entities.User;
 import com.company.repository.TaskRepository;
+import com.company.repository.UserRepository;
+import com.company.security.CustomSecurityContext;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,22 +20,35 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class TaskService {
     private final TaskRepository taskRepository;
+    private final CustomSecurityContext securityContext;
+    private final UserRepository userRepository;
 
-    public List<TaskResponse> getAllTask() {
-        List<Task> all = taskRepository.findAll();
-        return all.stream().map(TaskResponse::convertTaskToTaskResponse).collect(Collectors.toList());
+    @Transactional
+    private User getLoginUser() {
+        String user = securityContext.getSecurityContext();
+        return userRepository.findByEmail(user).orElseThrow(() -> new UsernameNotFoundException("user not found"));
     }
 
+    @Transactional
+    public List<TaskResponse> getAllTask() {
+        User loginUser = getLoginUser();
+        List<Task> allTask = taskRepository.findAll();
+        return allTask.stream().map((tasks) -> TaskResponse.convertTaskToTaskResponse(tasks, loginUser.getFirstName())).collect(Collectors.toList());
+    }
+
+    @Transactional
     public TaskResponse getTaskById(Long id) {
         Task task = taskRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("task not found"));
-        return TaskResponse.convertTaskToTaskResponse(task);
+        return TaskResponse.convertTaskToTaskResponse(task, getLoginUser().getFirstName());
     }
 
     @Transactional
     public TaskResponse createTask(TaskRequest taskRequest) {
+        User loginUser = getLoginUser();
         Task task = TaskRequest.taskRequestConverteToTask(taskRequest);
+        task.setUser(loginUser);
         Task savedTask = taskRepository.save(task);
-        return TaskResponse.convertTaskToTaskResponse(savedTask);
+        return TaskResponse.convertTaskToTaskResponse(savedTask, getLoginUser().getFirstName());
     }
 
     @Transactional
@@ -39,7 +56,7 @@ public class TaskService {
         Task task = TaskRequest.taskRequestConverteToTask(taskRequest);
         Task foundTask = taskRepository.findById(id).orElseThrow();
         Task updateTask = TaskRequest.updateTask(foundTask, task);
-        return TaskResponse.convertTaskToTaskResponse(updateTask);
+        return TaskResponse.convertTaskToTaskResponse(updateTask, getLoginUser().getFirstName());
     }
 
     @Transactional

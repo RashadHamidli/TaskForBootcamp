@@ -1,11 +1,13 @@
 package com.company.services;
 
+import com.company.config.AuthenticationConfig;
 import com.company.dto.request.LoginRequest;
 import com.company.dto.responce.LoginResponse;
 import com.company.dto.request.UserRequest;
 import com.company.entities.Roles;
 import com.company.entities.User;
 import com.company.repository.UserRepository;
+import com.company.security.CustomSecurityContext;
 import com.company.security.JwtService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +25,7 @@ public class AuthenticationService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
     private final PasswordEncoder passwordEncoder;
+    private final CustomSecurityContext securityContext;
 
     @Transactional
     public LoginResponse registerUser(UserRequest userRequest) {
@@ -38,7 +41,7 @@ public class AuthenticationService {
         Authentication authenticate = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequest.email(), loginRequest.password()));
         User user = userRepository.findByEmail(loginRequest.email()).orElseThrow();
-        SecurityContextHolder.getContext().setAuthentication(authenticate);
+        securityContext.setSecurityContext(authenticate);
         String token = jwtService.generateToken(user);
         return new LoginResponse(token);
     }

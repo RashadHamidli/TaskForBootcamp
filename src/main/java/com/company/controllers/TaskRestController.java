@@ -4,15 +4,19 @@ import com.company.dto.request.TaskRequest;
 import com.company.dto.responce.TaskResponse;
 import com.company.entities.Task;
 import com.company.services.TaskService;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/tasks")
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class TaskRestController {
     private final TaskService taskService;
 
@@ -27,11 +31,13 @@ public class TaskRestController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public TaskResponse creatTask(@RequestBody TaskRequest taskRequest) {
         return taskService.createTask(taskRequest);
     }
 
     @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public TaskResponse updateTask(@PathVariable Long id, @RequestBody TaskRequest task) {
         return taskService.updateTask(id, task);
     }
