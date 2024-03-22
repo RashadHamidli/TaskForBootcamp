@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/tasks")
+@RequestMapping("/api/tasks")
 @RequiredArgsConstructor
 public class TaskRestController {
     private final TaskService taskService;
 
-    @GetMapping
+    @GetMapping("/all")
     public List<TaskResponse> getAllTask() {
         return taskService.getAllTask();
     }

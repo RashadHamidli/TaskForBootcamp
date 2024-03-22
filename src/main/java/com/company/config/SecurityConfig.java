@@ -25,13 +25,13 @@ public class SecurityConfig {
                 .cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/auth/*","/**").permitAll()
+                        .requestMatchers("/auth/**","/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(login -> {
-                    login.loginPage("/login");
+                    login.loginPage("/auth/login");
                     login.loginProcessingUrl("/perform_login");
-                    login.defaultSuccessUrl("/api/user/all", true);
+                    login.defaultSuccessUrl("/api/users/all", true);
                     login.failureUrl("/login.html?error=true");
                 })
                 .rememberMe(key -> {

@@ -17,10 +17,5 @@ public class Launcher {
         SpringApplication.run(Launcher.class, args);
     }
 
-    @Bean
-    public CommandLineRunner runner(UserRestController userRestController) {
-        return args -> {
-        };
-    }
 
 }
