@@ -8,14 +8,14 @@ import java.time.LocalDate;
 
 @Data
 public class TaskResponse {
+    private String username;
     private String name;
     private String text;
     private LocalDate deadline;
-    private String username;
 
-    public static TaskResponse convertTaskToTaskResponse(Task task, String username) {
+    public static TaskResponse convertTaskToTaskResponse(Task task) {
         TaskResponse taskResponse = new TaskResponse();
-        taskResponse.setUsername(username);
+        taskResponse.setUsername(task.getUser().getFirstName());
         taskResponse.setName(task.getName());
         taskResponse.setText(task.getText());
         taskResponse.setDeadline(task.getDeadline());

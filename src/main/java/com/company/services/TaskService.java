@@ -23,7 +23,6 @@ public class TaskService {
     private final CustomSecurityContext securityContext;
     private final UserRepository userRepository;
 
-    @Transactional
     private User getLoginUser() {
         String user = securityContext.getSecurityContext();
         return userRepository.findByEmail(user).orElseThrow(() -> new UsernameNotFoundException("user not found"));
@@ -33,13 +32,13 @@ public class TaskService {
     public List<TaskResponse> getAllTask() {
         User loginUser = getLoginUser();
         List<Task> allTask = taskRepository.findAll();
-        return allTask.stream().map((tasks) -> TaskResponse.convertTaskToTaskResponse(tasks, loginUser.getFirstName())).collect(Collectors.toList());
+        return allTask.stream().map(TaskResponse::convertTaskToTaskResponse).collect(Collectors.toList());
     }
 
     @Transactional
     public TaskResponse getTaskById(Long id) {
         Task task = taskRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("task not found"));
-        return TaskResponse.convertTaskToTaskResponse(task, getLoginUser().getFirstName());
+        return TaskResponse.convertTaskToTaskResponse(task);
     }
 
     @Transactional
@@ -48,7 +47,7 @@ public class TaskService {
         Task task = TaskRequest.taskRequestConverteToTask(taskRequest);
         task.setUser(loginUser);
         Task savedTask = taskRepository.save(task);
-        return TaskResponse.convertTaskToTaskResponse(savedTask, getLoginUser().getFirstName());
+        return TaskResponse.convertTaskToTaskResponse(savedTask);
     }
 
     @Transactional
@@ -56,7 +55,7 @@ public class TaskService {
         Task task = TaskRequest.taskRequestConverteToTask(taskRequest);
         Task foundTask = taskRepository.findById(id).orElseThrow();
         Task updateTask = TaskRequest.updateTask(foundTask, task);
-        return TaskResponse.convertTaskToTaskResponse(updateTask, getLoginUser().getFirstName());
+        return TaskResponse.convertTaskToTaskResponse(updateTask);
     }
 
     @Transactional
